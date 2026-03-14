@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contacto | conveniodefarmacia.com</title>
+  <meta name="description" content="Contacta con el equipo de conveniodefarmacia.com. Reporta errores, sugiere mejoras o haz consultas sobre el convenio de farmacia.">
+  <link rel="canonical" href="https://conveniodefarmacia.com/contacto">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://conveniodefarmacia.com/contacto">
+  <meta property="og:title" content="Contacto | conveniodefarmacia.com">
+  <meta property="og:locale" content="es_ES">
+
+  <link rel="icon" type="image/png" href="assets/img/IMG_9941.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/shared.css">
+
+  <style>
+    .contact-form { max-width: 600px; margin: 0 auto; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: var(--font);
+      font-size: 1rem;
+      background: var(--bg-card);
+      color: var(--text);
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      border-radius: 2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      font-family: var(--font);
+    }
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .contact-info-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--bg-section);
+      border-radius: var(--radius-lg);
+    }
+    .contact-info-item i {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .contact-info-item h3 { font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .contact-info-item p { font-size: 0.88rem; color: var(--text-secondary); margin: 0; }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-552P3WBC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header id="main-nav"></header>
+  <div id="breadcrumbs"></div>
+
+  <section class="page-hero">
+    <h1>Contacto</h1>
+    <p class="hero-subtitle">¿Has encontrado un error? ¿Tienes una sugerencia? ¿Necesitas que añadamos algo? Escríbeme.</p>
+  </section>
+
+  <main>
+    <div class="page-container page-container--narrow">
+
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <i class="fa-solid fa-bug"></i>
+          <h3>Reportar errores</h3>
+          <p>Si un cálculo no es correcto, cuéntame los detalles y lo reviso.</p>
+        </div>
+        <div class="contact-info-item">
+          <i class="fa-solid fa-lightbulb"></i>
+          <h3>Sugerencias</h3>
+          <p>Ideas para nuevas calculadoras o mejoras en las existentes.</p>
+        </div>
+        <div class="contact-info-item">
+          <i class="fa-solid fa-circle-question"></i>
+          <h3>Consultas</h3>
+          <p>Dudas sobre el convenio o cómo usar las herramientas.</p>
+        </div>
+      </div>
+
+      <form action="https://formspree.io/f/mlgpgkwv" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="contact-email">Tu email (para poder responderte)</label>
+          <input type="email" id="contact-email" name="email" placeholder="tu@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-tipo">Tipo de consulta</label>
+          <select id="contact-tipo" name="tipo">
+            <option value="error">Reportar un error</option>
+            <option value="sugerencia">Sugerencia o mejora</option>
+            <option value="consulta">Consulta sobre el convenio</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-asunto">Asunto</label>
+          <input type="text" id="contact-asunto" name="asunto" placeholder="Resumen breve de tu consulta" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-mensaje">Mensaje</label>
+          <textarea id="contact-mensaje" name="mensaje" placeholder="Describe tu consulta con el mayor detalle posible..." rows="6" required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">
+          <i class="fa-solid fa-paper-plane"></i> Enviar mensaje
+        </button>
+      </form>
+
+      <div class="content-text mt-4 text-center">
+        <p class="text-secondary" style="font-size:0.85rem">Respondo personalmente a todos los mensajes. Ten en cuenta que no soy un asesor laboral profesional: mis respuestas son orientativas y basadas en mi experiencia como farmacéutico.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="assets/js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBreadcrumbs([{ label: 'Contacto', href: '/contacto' }]);
+    });
+  </script>
+</body>
+</html>

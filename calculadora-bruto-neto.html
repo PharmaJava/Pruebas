@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calculadora Bruto Neto 2026 | Cualquier Convenio y Sector</title>
+  <meta name="description" content="Calcula tu sueldo neto desde el bruto para cualquier convenio. Introduce tu salario bruto anual, IRPF y Seguridad Social y obtén el neto mensual y anual al instante.">
+  <link rel="canonical" href="https://conveniodefarmacia.com/calculadora-bruto-neto">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Convenio de Farmacia">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://conveniodefarmacia.com/calculadora-bruto-neto">
+  <meta property="og:title" content="Calculadora Bruto Neto 2026 | Cualquier Convenio">
+  <meta property="og:description" content="Calcula tu sueldo neto para cualquier convenio: introduce bruto, IRPF y SS y obtén neto mensual, neto anual y desglose completo.">
+  <meta property="og:image" content="https://conveniodefarmacia.com/assets/img/og-image.png">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Convenio de Farmacia">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculadora Bruto Neto 2026 | Cualquier Convenio">
+  <meta name="twitter:image" content="https://conveniodefarmacia.com/assets/img/og-image.png">
+
+  <link rel="icon" type="image/png" href="assets/img/IMG_9941.png">
+  <link rel="apple-touch-icon" href="assets/img/IMG_9941.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/shared.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora Bruto Neto 2026 — Cualquier Convenio",
+    "description": "Calculadora de sueldo neto a partir del bruto para cualquier convenio o sector. Introduce bruto anual, IRPF y Seguridad Social y obtén el neto mensual y anual.",
+    "url": "https://conveniodefarmacia.com/calculadora-bruto-neto",
+    "applicationCategory": "FinanceApplication",
+    "inLanguage": "es-ES",
+    "publisher": { "@type": "Organization", "name": "Convenio de Farmacia", "url": "https://conveniodefarmacia.com/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cómo calculo mi sueldo neto a partir del bruto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El sueldo neto se obtiene restando al bruto las cotizaciones a la Seguridad Social del trabajador (en 2026: 6,48% — CC 4,70% + desempleo 1,55% + FP 0,10% + MEI 0,13%) y la retención de IRPF que corresponda según tu situación personal. Usa esta calculadora introduciendo tu bruto anual, el porcentaje de IRPF y el de SS para obtener el neto al instante."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué porcentaje de Seguridad Social debo poner en 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Para la mayoría de trabajadores por cuenta ajena en 2026, el total de cotizaciones SS a cargo del trabajador es del 6,48%: Contingencias Comunes 4,70% + Desempleo 1,55% + Formación Profesional 0,10% + MEI 0,13%. Este porcentaje es el mismo para los trabajadores del sector farmacéutico y para la mayoría de sectores."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo sé qué porcentaje de IRPF me retienen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El porcentaje de IRPF aparece en tu nómina como '% retención IRPF'. Si no tienes nómina aún (oferta de trabajo), puedes estimarlo: con salario bruto anual de 15.000-20.000€ suele ser 8-12%; de 20.000-30.000€ ronda el 12-18%; de 30.000-40.000€ entre 17-22%. Varía según tu situación personal: hijos, discapacidad, hipoteca, etc. Puedes calcularlo exactamente en el portal de la AEAT."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué diferencia hay entre 12 y 14 pagas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Con 12 pagas, las pagas extras están prorrateadas: cobras la misma cantidad todos los meses pero ya incluye la parte proporcional de las extras. Con 14 pagas, cobras 12 nóminas ordinarias más 2 pagas extras completas (normalmente en junio y diciembre). El bruto anual total es el mismo en ambos casos, solo cambia cuándo y cómo lo cobras."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+  /* ── Calculadora card ── */
+  .calc-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1.5px solid var(--border-light);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  .calc-card__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+  @media (max-width: 600px) { .calc-grid { grid-template-columns: 1fr; } }
+
+  .calc-group { display: flex; flex-direction: column; gap: .35rem; }
+  .calc-group--full { grid-column: 1 / -1; }
+  .calc-group label {
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+  }
+  .calc-group input,
+  .calc-group select {
+    padding: .65rem .9rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-size: .95rem;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .calc-group input:focus,
+  .calc-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+  }
+  .calc-group .hint {
+    font-size: .75rem;
+    color: var(--text-light);
+    line-height: 1.4;
+  }
+  .calc-btn {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: .9rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: filter .15s, transform .1s;
+  }
+  .calc-btn:hover { filter: brightness(1.07); transform: translateY(-1px); }
+  .calc-btn:active { transform: translateY(0); }
+
+  /* ── Resultado ── */
+  .resultado-wrap {
+    margin-top: 1.5rem;
+    display: none;
+  }
+  .resultado-highlight {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1px;
+  }
+  .resultado-highlight__label {
+    font-size: .85rem;
+    opacity: .85;
+    font-weight: 600;
+  }
+  .resultado-highlight__value {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -.02em;
+  }
+  .resultado-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0;
+    border: 1.5px solid var(--border-light);
+    border-top: none;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    overflow: hidden;
+  }
+  .resultado-stat {
+    padding: 1rem 1.25rem;
+    border-right: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .resultado-stat:last-child { border-right: none; }
+  .resultado-stat__label {
+    font-size: .73rem;
+    color: var(--text-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-bottom: .3rem;
+  }
+  .resultado-stat__value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .resultado-stat__value--green { color: var(--primary); }
+  .resultado-stat__value--red { color: #ef4444; }
+  .resultado-stat__value--amber { color: #d97706; }
+
+  .resultado-nota {
+    font-size: .78rem;
+    color: var(--text-light);
+    margin-top: .75rem;
+    padding-top: .75rem;
+    border-top: 1px solid var(--border-light);
+    line-height: 1.5;
+  }
+
+  /* ── Tabla referencia SS ── */
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .88rem;
+    margin: .75rem 0;
+  }
+  .ref-table th {
+    background: var(--bg-section);
+    padding: .5rem .75rem;
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+    border-bottom: 2px solid var(--border);
+    font-size: .8rem;
+  }
+  .ref-table td {
+    padding: .45rem .75rem;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text);
+  }
+  .ref-table tr:hover td { background: var(--bg-section); }
+  .ref-table .td-total { font-weight: 700; color: var(--primary); }
+
+  /* ── Info boxes ── */
+  .info-box {
+    background: var(--primary-50);
+    border: 1px solid var(--primary-100);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: .9rem 1.1rem;
+    font-size: .9rem;
+    color: var(--text);
+    margin: 1.5rem 0;
+    line-height: 1.6;
+  }
+  .dark-mode .info-box { background: rgba(5,150,105,.1); border-color: rgba(5,150,105,.3); }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-552P3WBC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header id="main-nav"></header>
+  <div id="breadcrumbs"></div>
+
+  <section class="page-hero">
+    <span class="hero-badge"><i class="fa-solid fa-briefcase"></i> Cualquier convenio · España 2026</span>
+    <h1>Calculadora Bruto a Neto 2026</h1>
+    <p class="hero-subtitle">Calcula tu sueldo neto para cualquier sector y convenio. Introduce tu bruto anual, el IRPF y la Seguridad Social y obtén el desglose completo al instante.</p>
+  </section>
+
+  <nav class="quick-nav" aria-label="Saltar a sección">
+    <div class="page-container" style="padding-top:0.75rem;padding-bottom:0.75rem">
+      <div class="quick-nav__links">
+        <a href="#calculadora" class="quick-nav__btn quick-nav__btn--highlight"><i class="fa-solid fa-calculator"></i> Calculadora</a>
+        <a href="#como-funciona" class="quick-nav__btn"><i class="fa-solid fa-circle-info"></i> ¿Cómo funciona?</a>
+        <a href="#cotizaciones-ss" class="quick-nav__btn"><i class="fa-solid fa-shield-halved"></i> Cotizaciones SS</a>
+        <a href="#preguntas" class="quick-nav__btn"><i class="fa-solid fa-circle-question"></i> Preguntas</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-container page-container--narrow">
+
+      <!-- CALCULADORA -->
+      <section class="content-section" id="calculadora" aria-label="Calculadora bruto a neto">
+        <h2><i class="fa-solid fa-calculator"></i> Calculadora Bruto → Neto</h2>
+        <p>Válida para cualquier convenio o sector. Introduce tu salario bruto y las deducciones.</p>
+
+        <div class="calc-card">
+          <div class="calc-grid">
+
+            <div class="calc-group">
+              <label for="bl-entrada"><i class="fa-solid fa-euro-sign"></i> Tipo de entrada</label>
+              <select id="bl-entrada">
+                <option value="anual">Salario bruto anual</option>
+                <option value="mensual">Salario bruto mensual</option>
+              </select>
+            </div>
+
+            <div class="calc-group">
+              <label for="bl-bruto"><i class="fa-solid fa-money-bill-wave"></i> Salario bruto (€) *</label>
+              <input type="number" id="bl-bruto" placeholder="Ej: 24.000" min="1" step="100">
+              <span class="hint" id="bl-bruto-hint">Bruto anual antes de impuestos y SS</span>
+            </div>
+
+            <div class="calc-group">
+              <label for="bl-irpf"><i class="fa-solid fa-percent"></i> Retención IRPF (%)</label>
+              <input type="number" id="bl-irpf" value="15" min="0" max="50" step="0.1">
+              <span class="hint">Aparece en tu nómina como "% retención"</span>
+            </div>
+
+            <div class="calc-group">
+              <label for="bl-ss"><i class="fa-solid fa-shield-halved"></i> SS trabajador (%)
+                <span style="font-weight:400; font-size:.75rem; color:var(--primary)">2026: 6,48%</span>
+              </label>
+              <input type="number" id="bl-ss" value="6.48" min="0" max="20" step="0.01">
+              <span class="hint">CC 4,70% + Desempleo 1,55% + FP 0,10% + MEI 0,13%</span>
+            </div>
+
+            <div class="calc-group">
+              <label for="bl-pagas"><i class="fa-solid fa-calendar-check"></i> Número de pagas</label>
+              <select id="bl-pagas">
+                <option value="12">12 pagas (prorrateadas)</option>
+                <option value="14" selected>14 pagas (estándar)</option>
+                <option value="15">15 pagas (Asturias farmacia)</option>
+              </select>
+            </div>
+
+          </div>
+
+          <button class="calc-btn" onclick="calcularBrutoNeto()">
+            <i class="fa-solid fa-calculator"></i> Calcular sueldo neto
+          </button>
+
+          <!-- Resultado -->
+          <div class="resultado-wrap" id="bl-resultado">
+            <div class="resultado-highlight">
+              <div>
+                <div class="resultado-highlight__label">Neto mensual (1 de <span id="bl-res-pagas">14</span> pagas)</div>
+                <div class="resultado-highlight__value" id="bl-res-neto-mes">—</div>
+              </div>
+              <div style="text-align:right">
+                <div class="resultado-highlight__label">Neto anual</div>
+                <div style="font-size:1.2rem;font-weight:700" id="bl-res-neto-anual">—</div>
+              </div>
+            </div>
+            <div class="resultado-grid">
+              <div class="resultado-stat">
+                <div class="resultado-stat__label">Bruto mensual</div>
+                <div class="resultado-stat__value" id="bl-res-bruto-mes">—</div>
+              </div>
+              <div class="resultado-stat">
+                <div class="resultado-stat__label">Bruto anual</div>
+                <div class="resultado-stat__value" id="bl-res-bruto-anual">—</div>
+              </div>
+              <div class="resultado-stat">
+                <div class="resultado-stat__label">IRPF anual</div>
+                <div class="resultado-stat__value resultado-stat__value--red" id="bl-res-irpf">—</div>
+              </div>
+              <div class="resultado-stat">
+                <div class="resultado-stat__label">SS anual (trabajador)</div>
+                <div class="resultado-stat__value resultado-stat__value--amber" id="bl-res-ss">—</div>
+              </div>
+              <div class="resultado-stat">
+                <div class="resultado-stat__label">Total deducciones</div>
+                <div class="resultado-stat__value resultado-stat__value--red" id="bl-res-deducciones">—</div>
+              </div>
+              <div class="resultado-stat">
+                <div class="resultado-stat__label">% sobre bruto</div>
+                <div class="resultado-stat__value" id="bl-res-pct">—</div>
+              </div>
+            </div>
+            <p class="resultado-nota" id="bl-res-nota">—</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <strong><i class="fa-solid fa-lightbulb"></i> ¿Trabajas en farmacia?</strong> Si tu convenio es el de farmacia, usa la
+          <a href="calculadora-nomina"><strong>calculadora de nómina farmacia</strong></a> — calcula automáticamente con las tablas del XXV Convenio, Bizkaia, Gipuzkoa, Asturias y más, incluyendo trienios, nocturnidad y jornada parcial.
+        </div>
+      </section>
+
+      <!-- CÓMO FUNCIONA -->
+      <section class="content-section" id="como-funciona" aria-label="Cómo se calcula el sueldo neto">
+        <h2><i class="fa-solid fa-circle-info"></i> ¿Cómo se calcula el sueldo neto?</h2>
+
+        <p>Tu <strong>sueldo neto</strong> es lo que realmente recibes en cuenta. Se obtiene restando al bruto dos tipos de deducciones obligatorias:</p>
+
+        <p><strong>1. Cotizaciones a la Seguridad Social (SS)</strong> — Se calculan como un porcentaje de tu base de cotización (prácticamente igual a tu bruto). En 2026, el trabajador cotiza el <strong>6,48% del bruto</strong>.</p>
+
+        <p><strong>2. Retención de IRPF</strong> — Es el anticipo del impuesto sobre la renta. Tu empresa lo calcula según tu situación personal y lo retiene mensualmente. Aparece como «% retención» en tu nómina.</p>
+
+        <p>La fórmula es sencilla:</p>
+
+        <div class="info-box" style="font-family:monospace;font-size:.9rem">
+          Neto anual = Bruto anual × (1 − IRPF% − SS%)<br>
+          Neto mensual = Neto anual ÷ número de pagas
+        </div>
+
+        <p>Ejemplo: Bruto anual de 21.000 €, IRPF 14%, SS 6,48%:<br>
+        Neto = 21.000 × (1 − 0,14 − 0,0648) = 21.000 × 0,7952 = <strong>16.699 €/año</strong> → <strong>1.192,8 €/mes</strong> (14 pagas).</p>
+      </section>
+
+      <!-- COTIZACIONES SS 2026 -->
+      <section class="content-section" id="cotizaciones-ss" aria-label="Cotizaciones Seguridad Social 2026">
+        <h2><i class="fa-solid fa-shield-halved"></i> Cotizaciones SS del Trabajador 2026</h2>
+
+        <p>Las cotizaciones a la Seguridad Social que se descuentan de tu nómina en 2026 son las siguientes (iguales para farmacia y para la mayoría de sectores):</p>
+
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>% Trabajador</th>
+              <th>% Empresa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Contingencias Comunes (CC)</td><td>4,70%</td><td>23,60%</td></tr>
+            <tr><td>Desempleo (régimen general)</td><td>1,55%</td><td>5,50%</td></tr>
+            <tr><td>Formación Profesional (FP)</td><td>0,10%</td><td>0,60%</td></tr>
+            <tr><td>MEI (Mecanismo Equidad Intergeneracional)</td><td>0,13%</td><td>0,52%</td></tr>
+            <tr><td>FOGASA</td><td>—</td><td>0,20%</td></tr>
+            <tr>
+              <td><strong>Total</strong></td>
+              <td class="td-total">6,48%</td>
+              <td class="td-total">30,42%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Coste empresa:</strong> tu empresa paga además el 30,42% de tu bruto en cotizaciones patronales. Si tu bruto es de 20.000 €, el coste real para la empresa es de aproximadamente <strong>26.084 €</strong>.</p>
+      </section>
+
+      <!-- IRPF ORIENTATIVO -->
+      <section class="content-section" id="irpf-referencia" aria-label="IRPF de referencia por tramos de renta">
+        <h2><i class="fa-solid fa-percent"></i> IRPF orientativo por rango de ingresos</h2>
+
+        <p>El porcentaje de retención de IRPF depende de tu salario bruto anual y de tu situación personal (hijos, discapacidad, hipoteca, etc.). Estos valores son <strong>orientativos para un trabajador sin cargas</strong>:</p>
+
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Bruto anual</th>
+              <th>IRPF orientativo (sin cargas)</th>
+              <th>Ejemplo neto mensual (14 pagas)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Hasta 15.000 €</td><td>7 – 10%</td><td>~920 – 960 €/mes</td></tr>
+            <tr><td>15.000 – 18.000 €</td><td>10 – 13%</td><td>~1.000 – 1.080 €/mes</td></tr>
+            <tr><td>18.000 – 22.000 €</td><td>12 – 16%</td><td>~1.100 – 1.250 €/mes</td></tr>
+            <tr><td>22.000 – 28.000 €</td><td>15 – 19%</td><td>~1.280 – 1.520 €/mes</td></tr>
+            <tr><td>28.000 – 35.000 €</td><td>18 – 22%</td><td>~1.550 – 1.850 €/mes</td></tr>
+            <tr><td>35.000 – 50.000 €</td><td>21 – 26%</td><td>~1.900 – 2.450 €/mes</td></tr>
+            <tr><td>Más de 50.000 €</td><td>26 – 35%+</td><td>Variable</td></tr>
+          </tbody>
+        </table>
+
+        <p>Para conocer tu retención exacta, consulta la <a href="https://sede.agenciatributaria.gob.es/Sede/herramientas/todos-calculos/calculo-tipo-retencion.html" target="_blank" rel="noopener">calculadora de retenciones de la AEAT</a>.</p>
+
+        <p>Si trabajas en farmacia con el convenio nacional 2026 y quieres un cálculo preciso con las tablas oficiales, usa nuestra <a href="calculadora-nomina">calculadora de nómina farmacia</a>.</p>
+      </section>
+
+      <!-- FAQs -->
+      <section class="faq-section" id="preguntas" aria-label="Preguntas frecuentes">
+        <h2><i class="fa-solid fa-circle-question"></i> Preguntas Frecuentes</h2>
+
+        <details class="faq-item">
+          <summary>¿Cómo calculo mi sueldo neto a partir del bruto?</summary>
+          <div>
+            <p>Resta al bruto anual las cotizaciones a la Seguridad Social (6,48% en 2026) y la retención de IRPF que te corresponda. El resultado es el neto anual. Dividido entre el número de pagas obtienes el neto mensual. Usa la calculadora de arriba para hacerlo de forma automática.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Qué diferencia hay entre 12 y 14 pagas?</summary>
+          <div>
+            <p>El bruto anual total es el mismo. Con <strong>14 pagas</strong>, cobras 12 nóminas ordinarias + 2 pagas extras completas (habitualmente en junio y diciembre). Con <strong>12 pagas</strong>, las extras están prorrateadas: cobras la misma cantidad cada mes pero ya incluye la parte de la paga extra. Elige la opción que corresponda a tu contrato.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Cuánto paga la empresa en cotizaciones SS?</summary>
+          <div>
+            <p>La empresa paga en cotizaciones patronales aproximadamente el <strong>30,42% de tu bruto</strong> adicional: CC 23,60% + Desempleo 5,50% + FP 0,60% + MEI 0,52% + FOGASA 0,20%. Esto significa que si tu bruto es 24.000 €, el coste real para la empresa es de unos 31.300 € al año.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Por qué varía el IRPF según la persona?</summary>
+          <div>
+            <p>El IRPF es un impuesto progresivo que tiene en cuenta tu situación personal. Factores que lo reducen: hijos a cargo, discapacidad propia o de familiares, préstamo hipotecario anterior a 2013, cónyuge sin ingresos, y otros. Factores que lo aumentan: percibir más de un salario a la vez, tener rentas adicionales, etc. El porcentaje exacto lo calcula la empresa con la información que le das en el modelo 145 al inicio del contrato.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Es lo mismo bruto anual que base reguladora?</summary>
+          <div>
+            <p>No exactamente. El <strong>bruto anual</strong> es la suma de todos los conceptos salariales que cobras (salario base, complementos, pagas extras, pluses). La <strong>base reguladora</strong> para la SS es prácticamente igual al bruto pero excluye algunos conceptos como dietas o gastos de locomoción. Para la mayoría de trabajadores, la diferencia es mínima.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Trabaja esta calculadora para autónomos?</summary>
+          <div>
+            <p>No. Esta calculadora está pensada para <strong>trabajadores por cuenta ajena</strong> (asalariados) con nómina. Los autónomos tienen un sistema de cotización diferente (cuota fija mensual según rendimientos) y tributan en IRPF de forma distinta (pagos fraccionados trimestrales). Para autónomos, usa las herramientas de la AEAT y la Seguridad Social.</p>
+          </div>
+        </details>
+      </section>
+
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="assets/js/components.js"></script>
+  <script>
+  'use strict';
+
+  const fmt = v => v.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtPct = v => v.toFixed(1) + '%';
+
+  // Actualizar hint según tipo de entrada
+  document.getElementById('bl-entrada').addEventListener('change', function() {
+    const hint = document.getElementById('bl-bruto-hint');
+    hint.textContent = this.value === 'anual'
+      ? 'Bruto anual antes de impuestos y SS'
+      : 'Bruto mensual (sin pagas extras incluidas)';
+  });
+
+  function calcularBrutoNeto() {
+    const tipoEntrada = document.getElementById('bl-entrada').value;
+    const valor       = parseFloat(document.getElementById('bl-bruto').value) || 0;
+    const irpfPct     = parseFloat(document.getElementById('bl-irpf').value)  || 0;
+    const ssPct       = parseFloat(document.getElementById('bl-ss').value)    || 0;
+    const numPagas    = parseInt(document.getElementById('bl-pagas').value);
+
+    if (valor <= 0) {
+      alert('Por favor, introduce un salario bruto válido.');
+      return;
+    }
+
+    // Calcular bruto anual normalizado
+    let brutoAnual;
+    if (tipoEntrada === 'mensual') {
+      brutoAnual = valor * numPagas;
+    } else {
+      brutoAnual = valor;
+    }
+
+    const irpfAnual      = brutoAnual * (irpfPct / 100);
+    const ssAnual        = brutoAnual * (ssPct / 100);
+    const deduccionTotal = irpfAnual + ssAnual;
+    const netoAnual      = brutoAnual - deduccionTotal;
+    const brutoMes       = brutoAnual / numPagas;
+    const netoMes        = netoAnual  / numPagas;
+    const pctDeduccion   = (deduccionTotal / brutoAnual) * 100;
+
+    // Actualizar resultado
+    document.getElementById('bl-res-pagas').textContent    = numPagas;
+    document.getElementById('bl-res-neto-mes').textContent = fmt(netoMes) + ' €';
+    document.getElementById('bl-res-neto-anual').textContent = fmt(netoAnual) + ' €';
+    document.getElementById('bl-res-bruto-mes').textContent  = fmt(brutoMes) + ' €';
+    document.getElementById('bl-res-bruto-anual').textContent = fmt(brutoAnual) + ' €';
+    document.getElementById('bl-res-irpf').textContent       = fmt(irpfAnual) + ' €';
+    document.getElementById('bl-res-ss').textContent         = fmt(ssAnual) + ' €';
+    document.getElementById('bl-res-deducciones').textContent = fmt(deduccionTotal) + ' €';
+    document.getElementById('bl-res-pct').textContent         = fmtPct(pctDeduccion) + ' de deducciones';
+
+    // Nota explicativa
+    const costoEmpresa = brutoAnual * (1 + 0.3042);
+    document.getElementById('bl-res-nota').textContent =
+      `Con IRPF ${fmtPct(irpfPct)} y SS ${fmtPct(ssPct)}, cobras el ${fmtPct(100 - pctDeduccion)} de tu bruto. ` +
+      `El coste total estimado para la empresa es de ${fmt(costoEmpresa)} € al año.`;
+
+    document.getElementById('bl-resultado').style.display = 'block';
+    document.getElementById('bl-resultado').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // Enter en inputs también calcula
+  ['bl-bruto', 'bl-irpf', 'bl-ss'].forEach(id => {
+    document.getElementById(id)?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') calcularBrutoNeto();
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderBreadcrumbs([{ label: 'Calculadora Bruto Neto', href: '/calculadora-bruto-neto' }]);
+  });
+  </script>
+</body>
+</html>

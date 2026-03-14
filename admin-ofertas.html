@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Gestión de Ofertas | Convenio de Farmacia</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" type="image/png" href="assets/img/IMG_9941.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/shared.css">
+
+  <style>
+  /* ── Admin Layout ── */
+  .admin-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+  }
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .admin-header__left h1 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0;
+  }
+  .admin-header__left p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0.25rem 0 0;
+  }
+  .admin-header__right {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .btn-admin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: all .15s;
+    background: var(--bg-card);
+    color: var(--text);
+  }
+  .btn-admin:hover { border-color: var(--primary); color: var(--primary); }
+  .btn-admin--primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border-color: transparent;
+  }
+  .btn-admin--primary:hover { filter: brightness(1.1); color: white; }
+  .btn-admin--danger { color: #dc2626; }
+  .btn-admin--danger:hover { border-color: #dc2626; background: #fef2f2; }
+  .btn-admin--sm { padding: 0.35rem 0.7rem; font-size: 0.8rem; }
+
+  /* ── Login Screen ── */
+  .login-screen {
+    max-width: 400px;
+    margin: 4rem auto;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .login-screen i.fa-lock { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+  .login-screen h2 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .login-screen p { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+  .login-form { display: flex; flex-direction: column; gap: 0.75rem; }
+  .login-form input {
+    padding: 0.65rem 0.85rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+  }
+  .login-form input:focus { outline: none; border-color: var(--primary); }
+  .login-error {
+    display: none;
+    padding: 0.6rem;
+    background: #fef2f2;
+    color: #dc2626;
+    border-radius: 8px;
+    font-size: 0.83rem;
+    font-weight: 500;
+  }
+
+  /* ── Stats Row ── */
+  .admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .stat-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+  }
+  .stat-card__num { font-size: 1.5rem; font-weight: 800; color: var(--text); }
+  .stat-card__label { font-size: 0.78rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+  .stat-card--pending .stat-card__num { color: #d97706; }
+  .stat-card--approved .stat-card__num { color: #059669; }
+  .stat-card--rejected .stat-card__num { color: #dc2626; }
+
+  /* ── Filtros admin ── */
+  .admin-filtros {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+  .admin-filtro-btn {
+    padding: 0.4rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 99px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    transition: all .15s;
+  }
+  .admin-filtro-btn:hover { border-color: var(--primary); color: var(--primary); }
+  .admin-filtro-btn--active { background: var(--primary); color: white; border-color: var(--primary); }
+
+  /* ── Tabla de ofertas ── */
+  .admin-ofertas-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .admin-oferta {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.15rem;
+    transition: border-color .15s;
+  }
+  .admin-oferta:hover { border-color: var(--primary-light); }
+  .admin-oferta__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .admin-oferta__empresa { font-weight: 700; font-size: 1rem; color: var(--text); margin: 0; }
+  .admin-oferta__puesto { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--primary); }
+  .admin-oferta__meta {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin: 0.25rem 0 0.5rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .admin-oferta__desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 0.75rem;
+    max-height: 4.5em;
+    overflow: hidden;
+  }
+  .admin-oferta__desc--expanded { max-height: none; }
+  .admin-oferta__actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+  .estado-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .estado-badge--pendiente { background: #fef3c7; color: #92400e; }
+  .estado-badge--aprobada { background: #dcfce7; color: #15803d; }
+  .estado-badge--rechazada { background: #fee2e2; color: #991b1b; }
+
+  /* ── Modal crear/editar ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  }
+  .modal h3 { font-size: 1.15rem; margin: 0 0 1.25rem; }
+  .modal .form-group { margin-bottom: 1rem; }
+  .modal .form-group label { display: block; font-size: 0.83rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--text-secondary); }
+  .modal .form-group input,
+  .modal .form-group select,
+  .modal .form-group textarea {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    box-sizing: border-box;
+  }
+  .modal .form-group textarea { resize: vertical; min-height: 80px; }
+  .modal-actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 1.5rem; }
+  .admin-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+  }
+  .admin-empty i { font-size: 2rem; opacity: 0.3; display: block; margin-bottom: 0.75rem; }
+  </style>
+</head>
+<body>
+  <header id="main-nav"></header>
+
+  <!-- ══ Login Screen ══ -->
+  <div id="login-screen" class="login-screen">
+    <i class="fa-solid fa-lock"></i>
+    <h2>Panel de Administración</h2>
+    <p>Inicia sesión con tu cuenta de superadmin para gestionar las ofertas de empleo.</p>
+    <form class="login-form" id="login-form">
+      <input type="email" id="login-email" placeholder="Email" required autocomplete="email">
+      <input type="password" id="login-password" placeholder="Contraseña" required autocomplete="current-password">
+      <div class="login-error" id="login-error"></div>
+      <button type="submit" class="btn-admin btn-admin--primary" style="justify-content:center;width:100%">
+        <i class="fa-solid fa-right-to-bracket"></i> Entrar
+      </button>
+    </form>
+  </div>
+
+  <!-- ══ Admin Dashboard (hidden until auth) ══ -->
+  <div id="admin-dashboard" style="display:none">
+    <div class="admin-wrapper">
+      <div class="admin-header">
+        <div class="admin-header__left">
+          <h1><i class="fa-solid fa-shield-halved"></i> Gestión de Ofertas</h1>
+          <p id="admin-user-email"></p>
+        </div>
+        <div class="admin-header__right">
+          <button class="btn-admin btn-admin--primary" onclick="abrirModalCrear()">
+            <i class="fa-solid fa-plus"></i> Nueva oferta
+          </button>
+          <a href="bolsa-empleo" class="btn-admin">
+            <i class="fa-solid fa-eye"></i> Ver pública
+          </a>
+          <button class="btn-admin btn-admin--danger" onclick="cerrarSesion()">
+            <i class="fa-solid fa-right-from-bracket"></i> Salir
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="admin-stats">
+        <div class="stat-card stat-card--pending">
+          <div class="stat-card__num" id="stat-pendientes">0</div>
+          <div class="stat-card__label">Pendientes</div>
+        </div>
+        <div class="stat-card stat-card--approved">
+          <div class="stat-card__num" id="stat-aprobadas">0</div>
+          <div class="stat-card__label">Aprobadas</div>
+        </div>
+        <div class="stat-card stat-card--rejected">
+          <div class="stat-card__num" id="stat-rechazadas">0</div>
+          <div class="stat-card__label">Rechazadas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__num" id="stat-total">0</div>
+          <div class="stat-card__label">Total</div>
+        </div>
+      </div>
+
+      <!-- Filtros por estado -->
+      <div class="admin-filtros">
+        <button class="admin-filtro-btn admin-filtro-btn--active" data-filtro="todas" onclick="filtrarAdmin('todas', this)">Todas</button>
+        <button class="admin-filtro-btn" data-filtro="pendiente" onclick="filtrarAdmin('pendiente', this)">
+          <i class="fa-solid fa-clock"></i> Pendientes
+        </button>
+        <button class="admin-filtro-btn" data-filtro="aprobada" onclick="filtrarAdmin('aprobada', this)">
+          <i class="fa-solid fa-circle-check"></i> Aprobadas
+        </button>
+        <button class="admin-filtro-btn" data-filtro="rechazada" onclick="filtrarAdmin('rechazada', this)">
+          <i class="fa-solid fa-circle-xmark"></i> Rechazadas
+        </button>
+      </div>
+
+      <!-- Lista de ofertas -->
+      <div id="admin-ofertas-list" class="admin-ofertas-list"></div>
+    </div>
+  </div>
+
+  <!-- ══ Modal Crear / Editar ══ -->
+  <div id="modal-oferta" class="modal-overlay" onclick="if(event.target===this)cerrarModal()">
+    <div class="modal">
+      <h3 id="modal-titulo"><i class="fa-solid fa-plus"></i> Nueva Oferta</h3>
+      <form id="modal-form">
+        <input type="hidden" id="modal-id">
+        <div class="form-group">
+          <label for="m-empresa">Empresa *</label>
+          <input type="text" id="m-empresa" required>
+        </div>
+        <div class="form-group">
+          <label for="m-localidad">Localidad y provincia *</label>
+          <input type="text" id="m-localidad" placeholder="Ej: Getafe (Madrid)" required>
+        </div>
+        <div class="form-group">
+          <label for="m-provincia">Clave provincia (para filtros)</label>
+          <input type="text" id="m-provincia" placeholder="madrid, barcelona, bizkaia…">
+        </div>
+        <div class="form-group">
+          <label for="m-puesto">Puesto *</label>
+          <select id="m-puesto" required>
+            <option value="">— Seleccionar —</option>
+            <option value="farmaceutico">Farmacéutico/a</option>
+            <option value="tecnico">Técnico/a en Farmacia</option>
+            <option value="auxiliar">Auxiliar de Farmacia</option>
+            <option value="industria_id">I+D / Investigación</option>
+            <option value="industria_calidad">Calidad / Regulatory</option>
+            <option value="industria_ventas">Delegado/a de ventas</option>
+            <option value="industria_otro">Otro perfil industria</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="m-jornada">Jornada</label>
+          <select id="m-jornada">
+            <option value="">— Sin especificar —</option>
+            <option value="completa">Jornada completa</option>
+            <option value="parcial">Jornada parcial</option>
+            <option value="fines">Fines de semana / festivos</option>
+            <option value="guardia">Guardias nocturnas</option>
+            <option value="temporal">Temporal / suplencia</option>
+            <option value="indefinido">Indefinido</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="m-convenio">Convenio</label>
+          <select id="m-convenio">
+            <option value="nacional">Nacional</option>
+            <option value="bizkaia">Bizkaia</option>
+            <option value="gipuzkoa">Gipuzkoa</option>
+            <option value="asturias">Asturias</option>
+            <option value="girona_tarragona_lleida">Girona/Tarragona/Lleida</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="m-salario">Salario orientativo</label>
+          <input type="text" id="m-salario" placeholder="Ej: 1.500–1.700 € brutos/mes">
+        </div>
+        <div class="form-group">
+          <label for="m-descripcion">Descripción *</label>
+          <textarea id="m-descripcion" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="m-email">Email de contacto *</label>
+          <input type="email" id="m-email" required>
+        </div>
+        <div class="form-group">
+          <label for="m-nombre">Nombre de contacto</label>
+          <input type="text" id="m-nombre">
+        </div>
+        <div class="form-group">
+          <label for="m-estado">Estado</label>
+          <select id="m-estado">
+            <option value="pendiente">Pendiente</option>
+            <option value="aprobada">Aprobada</option>
+            <option value="rechazada">Rechazada</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="m-notas">Notas internas (solo admin)</label>
+          <textarea id="m-notas" rows="2" placeholder="Motivo rechazo, observaciones…"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-admin" onclick="cerrarModal()">Cancelar</button>
+          <button type="submit" class="btn-admin btn-admin--primary" id="modal-submit-btn">
+            <i class="fa-solid fa-check"></i> Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer id="main-footer"></footer>
+
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script>
+  'use strict';
+
+  /* ═══════════════════════════════════════════
+     SUPABASE CONFIG
+  ═══════════════════════════════════════════ */
+  const SUPABASE_URL = 'https://xvvqwvdweorkvayblgtw.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh2dnF3dmR3ZW9ya3ZheWJsZ3R3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MzM0NTQsImV4cCI6MjA4OTAwOTQ1NH0.D3k2nXMaCXCpRFY-YxyfLQQG2-HGabtWyMRMwMLu7cQ';
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  let todasOfertas = [];
+  let filtroActual = 'todas';
+
+  const TIPO_LABELS = {
+    farmaceutico: 'Farmacéutico/a', tecnico: 'Técnico/a', auxiliar: 'Auxiliar',
+    industria_id: 'I+D', industria_calidad: 'Calidad', industria_ventas: 'Ventas', industria_otro: 'Industria',
+  };
+
+  function sanitizar(str) {
+    if (!str) return '';
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  /* ═══════════════════════════════════════════
+     AUTENTICACIÓN
+  ═══════════════════════════════════════════ */
+  async function verificarSesion() {
+    const { data: { session } } = await sb.auth.getSession();
+    if (session) {
+      mostrarDashboard(session.user.email);
+    }
+  }
+
+  async function iniciarSesion(email, password) {
+    const errorEl = document.getElementById('login-error');
+    errorEl.style.display = 'none';
+
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+    if (error) {
+      errorEl.textContent = 'Email o contraseña incorrectos.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    mostrarDashboard(data.user.email);
+  }
+
+  async function cerrarSesion() {
+    await sb.auth.signOut();
+    document.getElementById('admin-dashboard').style.display = 'none';
+    document.getElementById('login-screen').style.display = 'block';
+  }
+
+  function mostrarDashboard(email) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-dashboard').style.display = 'block';
+    document.getElementById('admin-user-email').textContent = email;
+    cargarTodasOfertas();
+  }
+
+  /* ═══════════════════════════════════════════
+     CARGAR Y RENDERIZAR OFERTAS
+  ═══════════════════════════════════════════ */
+  async function cargarTodasOfertas() {
+    const { data, error } = await sb
+      .from('ofertas')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error cargando ofertas:', error);
+      return;
+    }
+    todasOfertas = data || [];
+    actualizarStats();
+    renderOfertasAdmin();
+  }
+
+  function actualizarStats() {
+    const pendientes = todasOfertas.filter(o => o.estado === 'pendiente').length;
+    const aprobadas  = todasOfertas.filter(o => o.estado === 'aprobada').length;
+    const rechazadas = todasOfertas.filter(o => o.estado === 'rechazada').length;
+
+    document.getElementById('stat-pendientes').textContent = pendientes;
+    document.getElementById('stat-aprobadas').textContent  = aprobadas;
+    document.getElementById('stat-rechazadas').textContent = rechazadas;
+    document.getElementById('stat-total').textContent      = todasOfertas.length;
+  }
+
+  function filtrarAdmin(filtro, btnEl) {
+    filtroActual = filtro;
+    document.querySelectorAll('.admin-filtro-btn').forEach(b => b.classList.remove('admin-filtro-btn--active'));
+    if (btnEl) btnEl.classList.add('admin-filtro-btn--active');
+    renderOfertasAdmin();
+  }
+
+  function renderOfertasAdmin() {
+    const container = document.getElementById('admin-ofertas-list');
+    const filtradas = filtroActual === 'todas'
+      ? todasOfertas
+      : todasOfertas.filter(o => o.estado === filtroActual);
+
+    if (filtradas.length === 0) {
+      container.innerHTML = `
+        <div class="admin-empty">
+          <i class="fa-solid fa-inbox"></i>
+          <p>No hay ofertas ${filtroActual === 'todas' ? '' : 'con estado "' + filtroActual + '"'}</p>
+        </div>`;
+      return;
+    }
+
+    container.innerHTML = filtradas.map(o => {
+      const fecha = new Date(o.created_at).toLocaleDateString('es-ES', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
+      const estadoClass = `estado-badge--${o.estado}`;
+      return `
+        <div class="admin-oferta" data-id="${o.id}">
+          <div class="admin-oferta__top">
+            <div>
+              <span class="admin-oferta__puesto">${sanitizar(TIPO_LABELS[o.puesto] || o.puesto)}</span>
+              <h3 class="admin-oferta__empresa">${sanitizar(o.empresa)}</h3>
+              <div class="admin-oferta__meta">
+                <span><i class="fa-solid fa-location-dot"></i> ${sanitizar(o.localidad)}</span>
+                <span><i class="fa-solid fa-envelope"></i> ${sanitizar(o.email_contacto)}</span>
+                <span><i class="fa-solid fa-calendar"></i> ${fecha}</span>
+                ${o.salario ? `<span><i class="fa-solid fa-euro-sign"></i> ${sanitizar(o.salario)}</span>` : ''}
+              </div>
+            </div>
+            <span class="estado-badge ${estadoClass}">${o.estado}</span>
+          </div>
+          <p class="admin-oferta__desc">${sanitizar(o.descripcion)}</p>
+          ${o.notas_admin ? `<p style="font-size:0.8rem;color:#d97706;margin-bottom:0.5rem"><i class="fa-solid fa-note-sticky"></i> ${sanitizar(o.notas_admin)}</p>` : ''}
+          <div class="admin-oferta__actions">
+            ${o.estado !== 'aprobada' ? `<button class="btn-admin btn-admin--sm btn-admin--primary" onclick="cambiarEstado('${o.id}','aprobada')"><i class="fa-solid fa-check"></i> Aprobar</button>` : ''}
+            ${o.estado !== 'rechazada' ? `<button class="btn-admin btn-admin--sm btn-admin--danger" onclick="cambiarEstado('${o.id}','rechazada')"><i class="fa-solid fa-xmark"></i> Rechazar</button>` : ''}
+            ${o.estado !== 'pendiente' ? `<button class="btn-admin btn-admin--sm" onclick="cambiarEstado('${o.id}','pendiente')"><i class="fa-solid fa-clock"></i> Pendiente</button>` : ''}
+            <button class="btn-admin btn-admin--sm" onclick="abrirModalEditar('${o.id}')"><i class="fa-solid fa-pen"></i> Editar</button>
+            <button class="btn-admin btn-admin--sm btn-admin--danger" onclick="eliminarOferta('${o.id}')"><i class="fa-solid fa-trash"></i> Eliminar</button>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  /* ═══════════════════════════════════════════
+     ACCIONES CRUD
+  ═══════════════════════════════════════════ */
+  async function cambiarEstado(id, nuevoEstado) {
+    const { error } = await sb
+      .from('ofertas')
+      .update({ estado: nuevoEstado })
+      .eq('id', id);
+
+    if (error) {
+      alert('Error al cambiar estado: ' + error.message);
+      return;
+    }
+    cargarTodasOfertas();
+  }
+
+  async function eliminarOferta(id) {
+    if (!confirm('¿Seguro que quieres eliminar esta oferta? Esta acción no se puede deshacer.')) return;
+
+    const { error } = await sb
+      .from('ofertas')
+      .delete()
+      .eq('id', id);
+
+    if (error) {
+      alert('Error al eliminar: ' + error.message);
+      return;
+    }
+    cargarTodasOfertas();
+  }
+
+  /* ═══════════════════════════════════════════
+     MODAL CREAR / EDITAR
+  ═══════════════════════════════════════════ */
+  function abrirModalCrear() {
+    document.getElementById('modal-id').value = '';
+    document.getElementById('modal-titulo').innerHTML = '<i class="fa-solid fa-plus"></i> Nueva Oferta';
+    document.getElementById('modal-form').reset();
+    document.getElementById('m-estado').value = 'aprobada'; // admin crea directamente aprobadas
+    document.getElementById('modal-oferta').classList.add('active');
+  }
+
+  function abrirModalEditar(id) {
+    const o = todasOfertas.find(x => x.id === id);
+    if (!o) return;
+
+    document.getElementById('modal-id').value = o.id;
+    document.getElementById('modal-titulo').innerHTML = '<i class="fa-solid fa-pen"></i> Editar Oferta';
+    document.getElementById('m-empresa').value     = o.empresa || '';
+    document.getElementById('m-localidad').value   = o.localidad || '';
+    document.getElementById('m-provincia').value   = o.provincia || '';
+    document.getElementById('m-puesto').value      = o.puesto || '';
+    document.getElementById('m-jornada').value     = o.jornada || '';
+    document.getElementById('m-convenio').value    = o.convenio || 'nacional';
+    document.getElementById('m-salario').value     = o.salario || '';
+    document.getElementById('m-descripcion').value = o.descripcion || '';
+    document.getElementById('m-email').value       = o.email_contacto || '';
+    document.getElementById('m-nombre').value      = o.nombre_contacto || '';
+    document.getElementById('m-estado').value      = o.estado || 'pendiente';
+    document.getElementById('m-notas').value       = o.notas_admin || '';
+
+    document.getElementById('modal-oferta').classList.add('active');
+  }
+
+  function cerrarModal() {
+    document.getElementById('modal-oferta').classList.remove('active');
+  }
+
+  async function guardarOferta() {
+    const id = document.getElementById('modal-id').value;
+    const datos = {
+      empresa:         document.getElementById('m-empresa').value.trim(),
+      localidad:       document.getElementById('m-localidad').value.trim(),
+      provincia:       document.getElementById('m-provincia').value.trim() || 'otro',
+      puesto:          document.getElementById('m-puesto').value,
+      jornada:         document.getElementById('m-jornada').value || null,
+      convenio:        document.getElementById('m-convenio').value || 'nacional',
+      salario:         document.getElementById('m-salario').value.trim() || null,
+      descripcion:     document.getElementById('m-descripcion').value.trim(),
+      email_contacto:  document.getElementById('m-email').value.trim(),
+      nombre_contacto: document.getElementById('m-nombre').value.trim() || null,
+      estado:          document.getElementById('m-estado').value,
+      notas_admin:     document.getElementById('m-notas').value.trim() || null,
+    };
+
+    const btn = document.getElementById('modal-submit-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Guardando…';
+
+    try {
+      let result;
+      if (id) {
+        // Editar existente
+        result = await sb.from('ofertas').update(datos).eq('id', id);
+      } else {
+        // Crear nueva
+        result = await sb.from('ofertas').insert(datos);
+      }
+
+      if (result.error) throw result.error;
+
+      cerrarModal();
+      cargarTodasOfertas();
+    } catch (err) {
+      alert('Error al guardar: ' + err.message);
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Guardar';
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+     INIT
+  ═══════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', () => {
+    // Login form
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const pass  = document.getElementById('login-password').value;
+      iniciarSesion(email, pass);
+    });
+
+    // Modal form
+    document.getElementById('modal-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      guardarOferta();
+    });
+
+    // Cerrar modal con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') cerrarModal();
+    });
+
+    // Verificar si ya hay sesión activa
+    verificarSesion();
+  });
+  </script>
+</body>
+</html>

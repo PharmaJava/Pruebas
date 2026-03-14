@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Herramientas Fiscales y Laborales | Convenio de Farmacia 2026</title>
+  <meta name="description" content="Calculadora IRPF 2026 según tablas AEAT, neto para cualquier convenio, calculadora inversa bruto→neto, atrasos salariales obligatorios desde febrero 2026 y simulador del próximo convenio de farmacia.">
+  <link rel="canonical" href="https://conveniodefarmacia.com/herramientas-farmacia">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Convenio de Farmacia">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://conveniodefarmacia.com/herramientas-farmacia">
+  <meta property="og:title" content="Herramientas Fiscales y Laborales — Convenio de Farmacia 2026">
+  <meta property="og:description" content="Calculadoras IRPF, neto libre, calculadora inversa, atrasos y simulador de convenio. Datos oficiales BOE 2026.">
+  <meta property="og:image" content="https://conveniodefarmacia.com/assets/img/og-image.png">
+
+  <link rel="icon" type="image/png" href="assets/img/IMG_9941.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/shared.css">
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Herramientas Fiscales y Laborales para Farmacia 2026",
+    "url": "https://conveniodefarmacia.com/herramientas-farmacia",
+    "description": "Calculadora IRPF AEAT, neto cualquier convenio, calculadora inversa, atrasos 2026 y simulador de convenio.",
+    "inLanguage": "es-ES",
+    "isPartOf": { "@type": "WebSite", "name": "Convenio de Farmacia", "url": "https://conveniodefarmacia.com/" }
+  }
+  </script>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-552P3WBC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <header id="main-nav"></header>
+
+  <!-- Breadcrumbs -->
+  <div id="breadcrumbs" class="page-container"></div>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-container">
+      <h1><i class="fa-solid fa-wrench"></i> Herramientas Fiscales y Laborales</h1>
+      <p class="page-hero__subtitle">Calculadoras avanzadas: IRPF según tablas AEAT, neto para cualquier convenio, calculadora inversa, atrasos obligatorios desde febrero 2026 y simulador del próximo convenio.</p>
+    </div>
+  </section>
+
+  <!-- Quick nav -->
+  <div class="page-container" style="margin-top:1.5rem">
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem">
+      <a href="#irpf" class="badge badge--green" style="cursor:pointer;text-decoration:none"><i class="fa-solid fa-percent"></i> IRPF AEAT</a>
+      <a href="#neto-libre" class="badge" style="background:#e0f2fe;color:#0369a1;cursor:pointer;text-decoration:none"><i class="fa-solid fa-euro-sign"></i> Neto libre</a>
+      <a href="#inversa" class="badge" style="background:#fce7f3;color:#be185d;cursor:pointer;text-decoration:none"><i class="fa-solid fa-arrows-left-right"></i> Calculadora inversa</a>
+      <a href="#atrasos" class="badge" style="background:#fef3c7;color:#92400e;cursor:pointer;text-decoration:none"><i class="fa-solid fa-clock-rotate-left"></i> Atrasos 2026</a>
+      <a href="#simulador" class="badge" style="background:#ede9fe;color:#6d28d9;cursor:pointer;text-decoration:none"><i class="fa-solid fa-sliders"></i> Simulador convenio</a>
+    </div>
+  </div>
+
+  <main class="page-container" style="padding-top:2rem;padding-bottom:3rem">
+
+    <!-- ═══════════════════════════════════════════
+         1. CALCULADORA IRPF AEAT
+         ═══════════════════════════════════════════ -->
+    <section class="content-section" id="irpf">
+      <h2><i class="fa-solid fa-percent"></i> Calculadora IRPF 2026 — Tablas AEAT</h2>
+      <p>Calcula tu retención exacta de IRPF aplicando los <strong>tramos oficiales de la AEAT para 2026</strong>: tipo marginal progresivo, reducción por rendimientos del trabajo (art. 20 LIRPF) y mínimo personal y familiar. Más precisa que el porcentaje fijo estimado.</p>
+
+      <div class="calc-card" style="margin-top:1.25rem">
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="irpf-bruto">Salario bruto anual (€)</label>
+            <input type="number" id="irpf-bruto" placeholder="Ej: 25000" min="0" step="100">
+          </div>
+          <div class="calc-field">
+            <label for="irpf-situacion">Situación personal</label>
+            <select id="irpf-situacion">
+              <option value="soltero">Soltero/a sin descendientes</option>
+              <option value="soltero1">Soltero/a, 1 hijo</option>
+              <option value="soltero2">Soltero/a, 2 hijos</option>
+              <option value="soltero3">Soltero/a, 3+ hijos</option>
+              <option value="casado">Casado/a, cónyuge no trabaja</option>
+              <option value="casado1">Casado/a + 1 hijo</option>
+              <option value="casado2">Casado/a + 2 hijos</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="irpf-edad">Edad</label>
+            <select id="irpf-edad">
+              <option value="normal">Menos de 65 años</option>
+              <option value="65">Entre 65 y 74 años (+1.150 € mínimo)</option>
+              <option value="75">75 años o más (+1.400 € mínimo)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="irpf-movilidad">Gastos deducibles extra</label>
+            <select id="irpf-movilidad">
+              <option value="0">Solo los obligatorios (SS)</option>
+              <option value="2000">+ 2.000 € (gastos de difícil justificación)</option>
+              <option value="3500">+ 3.500 € (movilidad geográfica)</option>
+              <option value="7750">+ 7.750 € (discapacidad ≥33%)</option>
+            </select>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcularIRPFAEAT()">
+          <i class="fa-solid fa-calculator"></i> Calcular IRPF según AEAT
+        </button>
+
+        <div id="irpf-resultado" class="calc-resultado" style="display:none">
+          <h3 class="calc-resultado__titulo"><i class="fa-solid fa-receipt"></i> Resultado IRPF 2026</h3>
+          <div id="irpf-grid" class="irpf-grid"></div>
+          <div id="irpf-tramos" style="margin-top:1.25rem"></div>
+          <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:1rem;padding:0.75rem;background:var(--bg);border-radius:8px;border-left:3px solid #f59e0b">
+            ⚠️ Cálculo basado en tramos AEAT 2026 (art. 20 y 64 LIRPF). No incluye deducciones autonómicas específicas ni Plan de Pensiones. Para la retención exacta consulta el modelo 145 y el servicio de cálculo de la AEAT.
+          </p>
+        </div>
+      </div>
+
+      <details class="faq-item" style="margin-top:1.5rem">
+        <summary class="faq-question">¿Cómo funciona el IRPF en España?</summary>
+        <div class="faq-answer">
+          <p>El IRPF es un impuesto progresivo: cuanto más ganas, mayor es el porcentaje que aplica al tramo superior de tu salario. Los tramos para 2026 son: hasta 12.450 € → 19%, hasta 20.200 € → 24%, hasta 35.200 € → 30%, hasta 60.000 € → 37%, hasta 300.000 € → 45%, superior → 47%.</p>
+          <p>A tu bruto anual se le restan las cotizaciones a la SS y la reducción por rendimientos del trabajo antes de aplicar los tramos. También se descuenta el mínimo personal (5.550 €) del que no pagas impuestos.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">¿Qué es la reducción por rendimientos del trabajo?</summary>
+        <div class="faq-answer">
+          <p>El art. 20 de la LIRPF establece una reducción que beneficia a los trabajadores con ingresos bajos o medios. Para 2026: si tu rendimiento neto es ≤ 14.047,50 €, reduces 6.498 €. Entre 14.047,50 € y 19.747,50 €, la reducción decrece linealmente hasta 2.364 €. Por encima de 19.747,50 €, la reducción es de 2.364 €.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         2. NETO CUALQUIER CONVENIO
+         ═══════════════════════════════════════════ -->
+    <section class="content-section" id="neto-libre" style="margin-top:2.5rem">
+      <h2><i class="fa-solid fa-euro-sign"></i> Calculadora Neto — Cualquier Convenio</h2>
+      <p>¿No trabajas en farmacia o tienes un bruto pactado libremente? Calcula tu <strong>sueldo neto mensual y anual</strong> introduciendo cualquier salario bruto. El IRPF se calcula automáticamente con los tramos AEAT.</p>
+
+      <div class="calc-card" style="margin-top:1.25rem">
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="libre-bruto">Salario bruto anual (€)</label>
+            <input type="number" id="libre-bruto" placeholder="Ej: 22000" min="0" step="100">
+          </div>
+          <div class="calc-field">
+            <label for="libre-pagas">Número de pagas</label>
+            <select id="libre-pagas">
+              <option value="12">12 pagas</option>
+              <option value="14" selected>14 pagas</option>
+              <option value="15">15 pagas</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="libre-jornada">Jornada</label>
+            <select id="libre-jornada">
+              <option value="100">Jornada completa (100%)</option>
+              <option value="75">75%</option>
+              <option value="50">50%</option>
+              <option value="25">25%</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="libre-situacion">Situación IRPF</label>
+            <select id="libre-situacion">
+              <option value="soltero">Soltero/a, sin hijos</option>
+              <option value="soltero1">Soltero/a, 1 hijo</option>
+              <option value="soltero2">Soltero/a, 2+ hijos</option>
+              <option value="casado">Casado/a, cónyuge no trabaja</option>
+            </select>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcularNetoLibre()">
+          <i class="fa-solid fa-calculator"></i> Calcular mi neto
+        </button>
+
+        <div id="libre-resultado" class="calc-resultado" style="display:none">
+          <h3 class="calc-resultado__titulo"><i class="fa-solid fa-wallet"></i> Tu sueldo neto</h3>
+          <div id="libre-grid" class="irpf-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         3. CALCULADORA INVERSA
+         ═══════════════════════════════════════════ -->
+    <section class="content-section" id="inversa" style="margin-top:2.5rem">
+      <h2><i class="fa-solid fa-arrows-left-right"></i> Calculadora Inversa — ¿Cuánto bruto necesito?</h2>
+      <p>Sabes cuánto quieres cobrar en neto, pero ¿cuánto bruto debes negociar con tu empresa? Esta calculadora hace el camino inverso: a partir del <strong>neto deseado</strong> calcula el bruto necesario.</p>
+
+      <div class="calc-card" style="margin-top:1.25rem">
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="inv-neto">Neto mensual deseado (€)</label>
+            <input type="number" id="inv-neto" placeholder="Ej: 1600" min="0" step="10">
+            <span class="calc-hint">El que quieres recibir cada mes en tu cuenta</span>
+          </div>
+          <div class="calc-field">
+            <label for="inv-pagas">Número de pagas</label>
+            <select id="inv-pagas">
+              <option value="12">12 pagas</option>
+              <option value="14" selected>14 pagas</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="inv-situacion">Situación IRPF</label>
+            <select id="inv-situacion">
+              <option value="soltero">Soltero/a, sin hijos</option>
+              <option value="soltero1">Soltero/a, 1 hijo</option>
+              <option value="casado">Casado/a, cónyuge no trabaja</option>
+            </select>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcularInversa()">
+          <i class="fa-solid fa-arrows-left-right"></i> ¿Qué bruto necesito?
+        </button>
+
+        <div id="inversa-resultado" class="calc-resultado" style="display:none">
+          <h3 class="calc-resultado__titulo"><i class="fa-solid fa-briefcase"></i> Bruto necesario</h3>
+          <div id="inversa-grid" class="irpf-grid"></div>
+          <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.75rem">Este es el salario bruto anual que debes negociar para recibir el neto indicado. Basado en tramos IRPF AEAT 2026 y cotizaciones SS 2026 (6,48%).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         4. ATRASOS 2026
+         ═══════════════════════════════════════════ -->
+    <section class="content-section" id="atrasos" style="margin-top:2.5rem">
+      <h2><i class="fa-solid fa-clock-rotate-left"></i> Atrasos Salariales — Obligatorios desde Febrero 2026</h2>
+
+      <div class="info-box info-box--warning" style="margin-bottom:1.25rem">
+        <strong><i class="fa-solid fa-triangle-exclamation"></i> Novedades BOE febrero 2026</strong>
+        <p>Con la publicación de las <strong>tablas salariales 2025-2026 en el BOE</strong> (resolución <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-4220" target="_blank" rel="noopener">BOE-A-2026-4220</a>), las subidas salariales son <strong>retroactivas y de aplicación obligatoria</strong>. Si tu farmacia no te ha abonado las diferencias desde enero 2025, tiene la obligación legal de hacerlo. Puedes reclamarlos con este simulador.</p>
+      </div>
+
+      <p>La subida del convenio fue del <strong>2% en 2025</strong> y del <strong>2% en 2026</strong> sobre el salario base. Si cobrabas el salario de 2024, tu empresa te debe los atrasos desde enero de 2025.</p>
+
+      <div class="calc-card" style="margin-top:1.25rem">
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="at-categoria">Categoría profesional</label>
+            <select id="at-categoria">
+              <option value="farmaceutico">Farmacéutico/a</option>
+              <option value="tecnico">Técnico/a en Farmacia</option>
+              <option value="auxiliar" selected>Auxiliar de Farmacia</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="at-jornada">Jornada</label>
+            <select id="at-jornada">
+              <option value="100">Completa (100%)</option>
+              <option value="75">75%</option>
+              <option value="50">50%</option>
+              <option value="25">25%</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="at-desde">Pendiente desde (mes/año)</label>
+            <input type="month" id="at-desde" min="2025-01" value="2025-01">
+          </div>
+          <div class="calc-field">
+            <label for="at-hasta">Hasta (mes/año)</label>
+            <input type="month" id="at-hasta">
+          </div>
+          <div class="calc-field">
+            <label for="at-irpf">IRPF (%)</label>
+            <input type="number" id="at-irpf" value="11" min="0" max="50" step="0.5">
+          </div>
+          <div class="calc-field">
+            <label for="at-pagas">Número de pagas</label>
+            <select id="at-pagas">
+              <option value="12">12 pagas</option>
+              <option value="14" selected>14 pagas</option>
+            </select>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcularAtrasosHerr()">
+          <i class="fa-solid fa-clock-rotate-left"></i> Calcular atrasos que me deben
+        </button>
+
+        <div id="atrasos-resultado" class="calc-resultado" style="display:none">
+          <h3 class="calc-resultado__titulo"><i class="fa-solid fa-hand-holding-dollar"></i> Atrasos pendientes</h3>
+          <div id="atrasos-grid" class="irpf-grid"></div>
+          <div id="atrasos-detalle" style="margin-top:1rem"></div>
+          <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.75rem;padding:0.75rem;background:var(--bg);border-radius:8px;border-left:3px solid #f59e0b">
+            ⚠️ Si la farmacia no abona voluntariamente los atrasos, puedes reclamarlos mediante escrito al empresario, papeleta de conciliación ante el SMAC, o demanda ante el Juzgado de lo Social. El plazo de prescripción es de 1 año por atraso (art. 59 ET).
+          </p>
+        </div>
+      </div>
+
+      <details class="faq-item" style="margin-top:1.5rem">
+        <summary class="faq-question">¿Cuándo prescriben los atrasos?</summary>
+        <div class="faq-answer">
+          <p>Según el art. 59 del Estatuto de los Trabajadores, las deudas salariales prescriben al año. Pero el cómputo se interrumpe con cualquier acción (escrito, reclamación, conciliación). En la práctica, si el convenio se publica en febrero de 2026 con efecto retroactivo desde enero 2025, tienes hasta enero 2026 para reclamar los de 2025 salvo que hayas interrumpido el plazo.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">¿Cómo tributan los atrasos?</summary>
+        <div class="faq-answer">
+          <p>Los atrasos se imputan al ejercicio en que debieron cobrarse (art. 14.2 LIRPF). Se declaran en la renta del año siguiente mediante declaración complementaria, lo que puede modificar tu retención habitual. La empresa está obligada a practicar retención en el pago.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         5. SIMULADOR NUEVO CONVENIO
+         ═══════════════════════════════════════════ -->
+    <section class="content-section" id="simulador" style="margin-top:2.5rem">
+      <h2><i class="fa-solid fa-sliders"></i> Simulador del Próximo Convenio</h2>
+      <p>¿Cuánto cobrarías si el próximo convenio sube un 3%, un 5%? Mueve el deslizador y descubre en tiempo real el impacto en tu nómina.</p>
+
+      <div class="calc-card" style="margin-top:1.25rem">
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label for="sim-cat">Tu categoría</label>
+            <select id="sim-cat">
+              <option value="farmaceutico">Farmacéutico/a (Nacional)</option>
+              <option value="tecnico">Técnico/a (Nacional)</option>
+              <option value="auxiliar" selected>Auxiliar (Nacional)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="sim-jornada">Jornada</label>
+            <select id="sim-jornada">
+              <option value="100">Completa (100%)</option>
+              <option value="75">75%</option>
+              <option value="50">50%</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="sim-pagas">Pagas</label>
+            <select id="sim-pagas">
+              <option value="12">12 pagas</option>
+              <option value="14" selected>14 pagas</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="sim-irpf">IRPF (%)</label>
+            <input type="number" id="sim-irpf" value="11" min="0" max="50" step="0.5">
+          </div>
+        </div>
+
+        <!-- Slider -->
+        <div style="margin-top:1.25rem">
+          <label style="font-weight:600;display:flex;justify-content:space-between;align-items:center">
+            <span>Subida salarial del próximo convenio</span>
+            <span id="sim-pct-label" style="font-size:1.4rem;font-weight:800;color:var(--primary)">2%</span>
+          </label>
+          <input type="range" id="sim-slider" min="0" max="10" step="0.25" value="2"
+            style="width:100%;margin:0.5rem 0;accent-color:var(--primary)">
+          <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--text-secondary)">
+            <span>0%</span><span>2,5%</span><span>5%</span><span>7,5%</span><span>10%</span>
+          </div>
+        </div>
+
+        <div id="sim-resultado" style="margin-top:1.5rem;display:none">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+            <div style="padding:1rem;background:var(--bg);border-radius:10px;border:1px solid var(--border)">
+              <p style="font-size:0.8rem;color:var(--text-secondary);margin:0">Base actual (2026)</p>
+              <p id="sim-actual-bruto" style="font-size:1.05rem;font-weight:700;margin:0.2rem 0">—</p>
+              <p id="sim-actual-neto" style="font-size:0.95rem;color:var(--primary);font-weight:600;margin:0">—</p>
+            </div>
+            <div style="padding:1rem;background:var(--primary-50);border-radius:10px;border:2px solid var(--primary)">
+              <p style="font-size:0.8rem;color:var(--text-secondary);margin:0">Con subida del <span id="sim-pct-label2">2%</span></p>
+              <p id="sim-nuevo-bruto" style="font-size:1.05rem;font-weight:700;margin:0.2rem 0">—</p>
+              <p id="sim-nuevo-neto" style="font-size:0.95rem;color:var(--primary);font-weight:600;margin:0">—</p>
+            </div>
+          </div>
+          <div style="padding:1rem;background:linear-gradient(135deg,#059669,#047857);border-radius:10px;color:white;text-align:center">
+            <p style="margin:0;font-size:0.9rem;opacity:0.9">Ganarías al mes</p>
+            <p id="sim-diferencia" style="margin:0.2rem 0 0;font-size:1.8rem;font-weight:800">—</p>
+            <p id="sim-diferencia-anual" style="margin:0.2rem 0 0;font-size:0.85rem;opacity:0.85">— al año</p>
+          </div>
+        </div>
+      </div>
+
+      <details class="faq-item" style="margin-top:1.5rem">
+        <summary class="faq-question">¿Cuándo se negocia el próximo convenio de farmacia?</summary>
+        <div class="faq-answer">
+          <p>El XXV Convenio Nacional de Oficinas de Farmacia tiene vigencia hasta diciembre de 2026. La negociación del XXVI Convenio debería iniciarse en el segundo semestre de 2026. Las subidas pactadas históricamente han estado entre el 2% y el 3% anual. Las tablas de 2026 ya están publicadas en el BOE (BOE-A-2026-4220) y son de aplicación obligatoria.</p>
+        </div>
+      </details>
+    </section>
+
+  </main>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="page-container page-container--narrow" style="text-align:center">
+      <div id="cta-calculadora"></div>
+    </div>
+  </section>
+
+  <footer id="main-footer"></footer>
+  <script src="assets/js/components.js"></script>
+  <script>
+  'use strict';
+
+  /* ── Tablas salariales 2026 ── */
+  const TABLAS_2026 = {
+    farmaceutico: { base: 2223.37, plus: 91.49 },
+    tecnico:      { base: 1507.26, plus: 0 },
+    auxiliar:     { base: 1370.64, plus: 0 }
+  };
+  const TABLAS_2024 = {
+    farmaceutico: { base: 2137.03, plus: 87.94 },
+    tecnico:      { base: 1448.74, plus: 0 },
+    auxiliar:     { base: 1317.42, plus: 0 }
+  };
+  const TABLAS_2025 = {
+    farmaceutico: { base: 2179.77, plus: 89.70 },
+    tecnico:      { base: 1477.71, plus: 0 },
+    auxiliar:     { base: 1343.77, plus: 0 }
+  };
+  const SS_PCT = 0.0648;
+
+  const fmt = v => v.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtEuro = v => fmt(v) + ' €';
+
+  /* ── Cálculo IRPF AEAT (tramos progresivos + reducciones) ── */
+  function getMinimoPersonal(situacion, edad) {
+    let minimo = 5550;
+    if (edad === '65') minimo += 1150;
+    if (edad === '75') minimo += 1400;
+    // Hijos
+    const hijosMapa = { soltero: 0, soltero1: 1, soltero2: 2, soltero3: 3, casado: 0, casado1: 1, casado2: 2 };
+    const hijos = hijosMapa[situacion] || 0;
+    const valHijos = [0, 2400, 2700, 4000, 4500];
+    for (let i = 0; i < hijos; i++) minimo += valHijos[Math.min(i + 1, 4)];
+    // Cónyuge no trabaja → reducción declaración conjunta
+    if (situacion === 'casado' || situacion === 'casado1' || situacion === 'casado2') minimo += 3400;
+    return minimo;
+  }
+
+  function reduccionRendimientosTrabajo(rendNeto) {
+    if (rendNeto <= 14047.5) return 6498;
+    if (rendNeto <= 19747.5) return 6498 - ((6498 - 2364) / (19747.5 - 14047.5)) * (rendNeto - 14047.5);
+    return 2364;
+  }
+
+  function cuotaTramos(base) {
+    if (base <= 0) return 0;
+    const TRAMOS = [
+      [0, 12450, 0.19], [12450, 20200, 0.24], [20200, 35200, 0.30],
+      [35200, 60000, 0.37], [60000, 300000, 0.45], [300000, Infinity, 0.47]
+    ];
+    let cuota = 0;
+    for (const [min, max, rate] of TRAMOS) {
+      if (base <= min) break;
+      cuota += (Math.min(base, max) - min) * rate;
+    }
+    return cuota;
+  }
+
+  function calcularIRPFAnual(brutoAnual, situacion, edad, gastosExtra) {
+    const ss = brutoAnual * SS_PCT;
+    const rendNeto = brutoAnual - ss - gastosExtra;
+    const reduccion = Math.min(reduccionRendimientosTrabajo(rendNeto), rendNeto);
+    const baseLiquidable = Math.max(0, rendNeto - reduccion);
+    const minimoPersonal = getMinimoPersonal(situacion, edad);
+    const cuotaBase = cuotaTramos(baseLiquidable);
+    const cuotaMinimo = cuotaTramos(minimoPersonal);
+    const irpfAnual = Math.max(0, cuotaBase - cuotaMinimo);
+    const pct = brutoAnual > 0 ? (irpfAnual / brutoAnual * 100) : 0;
+    return { irpfAnual, pct, ss, rendNeto, reduccion, baseLiquidable, minimoPersonal };
+  }
+
+  /* ── IRPF AEAT Calculator ── */
+  function calcularIRPFAEAT() {
+    const bruto = parseFloat(document.getElementById('irpf-bruto').value) || 0;
+    if (bruto <= 0) { alert('Introduce un salario bruto anual'); return; }
+    const situacion = document.getElementById('irpf-situacion').value;
+    const edad = document.getElementById('irpf-edad').value;
+    const gastosExtra = parseFloat(document.getElementById('irpf-movilidad').value) || 0;
+
+    const r = calcularIRPFAnual(bruto, situacion, edad, gastosExtra);
+    const neto = bruto - r.irpfAnual - r.ss;
+
+    document.getElementById('irpf-resultado').style.display = 'block';
+
+    document.getElementById('irpf-grid').innerHTML = `
+      <div class="irpf-row"><span>Bruto anual</span><strong>${fmtEuro(bruto)}</strong></div>
+      <div class="irpf-row irpf-row--minus"><span>— Cotización SS (6,48%)</span><strong>− ${fmtEuro(r.ss)}</strong></div>
+      <div class="irpf-row irpf-row--minus"><span>— Gastos deducibles</span><strong>− ${fmtEuro(gastosExtra)}</strong></div>
+      <div class="irpf-row irpf-row--minus"><span>— Reducción rendtos. trabajo (art. 20)</span><strong>− ${fmtEuro(r.reduccion)}</strong></div>
+      <div class="irpf-row irpf-row--sub"><span>= Base liquidable</span><strong>${fmtEuro(r.baseLiquidable)}</strong></div>
+      <div class="irpf-row irpf-row--minus"><span>— IRPF calculado (tipo efectivo: ${r.pct.toFixed(2)}%)</span><strong>− ${fmtEuro(r.irpfAnual)}</strong></div>
+      <div class="irpf-row irpf-row--total"><span>NETO ANUAL</span><strong>${fmtEuro(neto)}</strong></div>
+      <div class="irpf-row irpf-row--total"><span>NETO MENSUAL</span><strong>${fmtEuro(neto / 12)}</strong></div>
+      <div class="irpf-row"><span>Retención mensual IRPF</span><strong>${fmtEuro(r.irpfAnual / 12)}</strong></div>
+    `;
+
+    // Tramos desglosados
+    const base = r.baseLiquidable;
+    const TRAMOS = [
+      [0, 12450, 0.19, '19%'], [12450, 20200, 0.24, '24%'], [20200, 35200, 0.30, '30%'],
+      [35200, 60000, 0.37, '37%'], [60000, 300000, 0.45, '45%'], [300000, Infinity, 0.47, '47%']
+    ];
+    let tramosHTML = '<p style="font-size:0.85rem;font-weight:600;margin-bottom:0.5rem">Desglose por tramos:</p>';
+    tramosHTML += '<div style="display:flex;flex-direction:column;gap:0.3rem">';
+    for (const [min, max, rate, label] of TRAMOS) {
+      if (base <= min) break;
+      const tramo = Math.min(base, max) - min;
+      const cuota = tramo * rate;
+      const pctBarra = Math.min(100, (tramo / base) * 100);
+      tramosHTML += `<div style="font-size:0.82rem">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.15rem">
+          <span>Tramo ${label}: ${fmtEuro(Math.max(0,min))}–${max === Infinity ? '∞' : fmtEuro(max)}</span>
+          <span><strong>${fmtEuro(tramo)}</strong> × ${label} = <strong style="color:var(--irpf)">${fmtEuro(cuota)}</strong></span>
+        </div>
+        <div style="height:6px;background:var(--border);border-radius:3px">
+          <div style="height:100%;width:${pctBarra.toFixed(1)}%;background:var(--irpf);border-radius:3px;opacity:0.7"></div>
+        </div>
+      </div>`;
+    }
+    tramosHTML += '</div>';
+    document.getElementById('irpf-tramos').innerHTML = tramosHTML;
+  }
+
+  /* ── Neto libre ── */
+  function calcularNetoLibre() {
+    const bruto = parseFloat(document.getElementById('libre-bruto').value) || 0;
+    if (bruto <= 0) { alert('Introduce un salario bruto anual'); return; }
+    const pagas = parseInt(document.getElementById('libre-pagas').value);
+    const jornadaPct = parseInt(document.getElementById('libre-jornada').value) / 100;
+    const situacion = document.getElementById('libre-situacion').value;
+
+    const brutoJornada = bruto * jornadaPct;
+    const r = calcularIRPFAnual(brutoJornada, situacion, 'normal', 0);
+    const neto = brutoJornada - r.irpfAnual - r.ss;
+    const netoBrutoPct = brutoJornada > 0 ? (neto / brutoJornada * 100) : 0;
+
+    let brutoMes, netoMes;
+    if (pagas === 12) {
+      brutoMes = brutoJornada / 12;
+      netoMes = neto / 12;
+    } else {
+      const baseNomina = brutoJornada * (12 / pagas);
+      const basePagas = brutoJornada * ((pagas - 12) / pagas);
+      brutoMes = baseNomina / 12;
+      netoMes = (baseNomina - r.ss * (12 / pagas) - r.irpfAnual * (12 / pagas)) / 12;
+      netoMes = neto / 12;
+    }
+
+    document.getElementById('libre-resultado').style.display = 'block';
+    document.getElementById('libre-grid').innerHTML = `
+      <div class="irpf-row"><span>Bruto anual</span><strong>${fmtEuro(brutoJornada)}</strong></div>
+      <div class="irpf-row irpf-row--minus"><span>— SS trabajador (6,48%)</span><strong>− ${fmtEuro(r.ss)}</strong></div>
+      <div class="irpf-row irpf-row--minus"><span>— IRPF (tipo efectivo ${r.pct.toFixed(2)}%)</span><strong>− ${fmtEuro(r.irpfAnual)}</strong></div>
+      <div class="irpf-row irpf-row--total"><span>NETO ANUAL</span><strong>${fmtEuro(neto)}</strong></div>
+      <div class="irpf-row irpf-row--total"><span>NETO MENSUAL (${pagas} pagas)</span><strong>${fmtEuro(neto / 12)}</strong></div>
+      <div class="irpf-row"><span>% del bruto que recibes</span><strong>${netoBrutoPct.toFixed(1)}%</strong></div>
+    `;
+  }
+
+  /* ── Calculadora inversa (bisección) ── */
+  function calcularInversa() {
+    const netoDeseadoMes = parseFloat(document.getElementById('inv-neto').value) || 0;
+    if (netoDeseadoMes <= 0) { alert('Introduce el neto mensual deseado'); return; }
+    const pagas = parseInt(document.getElementById('inv-pagas').value);
+    const situacion = document.getElementById('inv-situacion').value;
+    const netoAnualDeseado = netoDeseadoMes * 12;
+
+    // Bisección: encontrar bruto anual tal que neto = netoAnualDeseado
+    let lo = netoAnualDeseado, hi = netoAnualDeseado * 3;
+    for (let i = 0; i < 60; i++) {
+      const mid = (lo + hi) / 2;
+      const r = calcularIRPFAnual(mid, situacion, 'normal', 0);
+      const neto = mid - r.irpfAnual - r.ss;
+      if (neto < netoAnualDeseado) lo = mid; else hi = mid;
+    }
+    const brutoNecesario = (lo + hi) / 2;
+    const r = calcularIRPFAnual(brutoNecesario, situacion, 'normal', 0);
+    const neto = brutoNecesario - r.irpfAnual - r.ss;
+
+    document.getElementById('inversa-resultado').style.display = 'block';
+    document.getElementById('inversa-grid').innerHTML = `
+      <div class="irpf-row irpf-row--total"><span>Bruto anual necesario</span><strong>${fmtEuro(brutoNecesario)}</strong></div>
+      <div class="irpf-row irpf-row--total"><span>Bruto mensual a negociar</span><strong>${fmtEuro(brutoNecesario / 12)}</strong></div>
+      <div class="irpf-row"><span>SS trabajador (6,48%)</span><strong>${fmtEuro(r.ss)}</strong></div>
+      <div class="irpf-row"><span>IRPF anual (tipo efectivo ${r.pct.toFixed(2)}%)</span><strong>${fmtEuro(r.irpfAnual)}</strong></div>
+      <div class="irpf-row irpf-row--sub"><span>Neto mensual resultante</span><strong>${fmtEuro(neto / 12)}</strong></div>
+    `;
+  }
+
+  /* ── Atrasos ── */
+  function brutoMensualConvenio(cat, jornPct, tablas) {
+    return (tablas[cat].base + tablas[cat].plus) * jornPct;
+  }
+
+  function netoMensual(brutoMes, irpfPct, pagas) {
+    const pagasExtra = pagas - 12;
+    const brutoExtra = brutoMes; // simplified
+    const prorrataExtra = (brutoExtra * pagasExtra) / 12;
+    const baseCot = brutoMes + prorrataExtra;
+    const ss = baseCot * SS_PCT;
+    const irpf = brutoMes * irpfPct;
+    return brutoMes - ss - irpf;
+  }
+
+  function calcularAtrasosHerr() {
+    const cat = document.getElementById('at-categoria').value;
+    const jornPct = parseInt(document.getElementById('at-jornada').value) / 100;
+    const desde = document.getElementById('at-desde').value;
+    const hasta = document.getElementById('at-hasta').value;
+    const irpfPct = parseFloat(document.getElementById('at-irpf').value) / 100;
+    const pagas = parseInt(document.getElementById('at-pagas').value);
+
+    if (!desde || !hasta || desde > hasta) { alert('Indica el período correctamente'); return; }
+
+    const tablasPorAnio = { '2024': TABLAS_2024, '2025': TABLAS_2025, '2026': TABLAS_2026 };
+
+    let totalBruto = 0, totalNeto = 0;
+    let detalleAnios = {};
+    let [yD, mD] = desde.split('-').map(Number);
+    let [yH, mH] = hasta.split('-').map(Number);
+    let y = yD, m = mD;
+
+    while (y < yH || (y === yH && m <= mH)) {
+      const anioKey = String(y);
+      const tablasActuales = tablasPorAnio[anioKey] || tablasPorAnio['2026'];
+      const tablasAnterior = tablasPorAnio[String(y - 1)] || tablasPorAnio['2024'];
+
+      const brutoActual = brutoMensualConvenio(cat, jornPct, tablasActuales);
+      const brutoAnterior = brutoMensualConvenio(cat, jornPct, tablasAnterior);
+      const difBruto = brutoActual - brutoAnterior;
+      const netoActual = netoMensual(brutoActual, irpfPct, pagas);
+      const netoAnterior = netoMensual(brutoAnterior, irpfPct, pagas);
+      const difNeto = netoActual - netoAnterior;
+
+      totalBruto += difBruto;
+      totalNeto += difNeto;
+      if (!detalleAnios[anioKey]) detalleAnios[anioKey] = { bruto: 0, neto: 0, meses: 0 };
+      detalleAnios[anioKey].bruto += difBruto;
+      detalleAnios[anioKey].neto += difNeto;
+      detalleAnios[anioKey].meses++;
+
+      m++; if (m > 12) { m = 1; y++; }
+    }
+
+    document.getElementById('atrasos-resultado').style.display = 'block';
+
+    document.getElementById('atrasos-grid').innerHTML = `
+      <div class="irpf-row irpf-row--total"><span>Total bruto pendiente</span><strong style="color:#dc2626">${fmtEuro(totalBruto)}</strong></div>
+      <div class="irpf-row irpf-row--total"><span>Total neto que te deben</span><strong style="color:#059669">${fmtEuro(totalNeto)}</strong></div>
+    `;
+
+    let detalleHTML = '<p style="font-weight:600;font-size:0.85rem;margin-bottom:0.5rem">Desglose anual:</p>';
+    for (const [anio, d] of Object.entries(detalleAnios)) {
+      detalleHTML += `<div class="irpf-row"><span>${anio} · ${d.meses} mes${d.meses > 1 ? 'es' : ''}</span><strong>${fmtEuro(d.neto)} neto / ${fmtEuro(d.bruto)} bruto</strong></div>`;
+    }
+    document.getElementById('atrasos-detalle').innerHTML = detalleHTML;
+  }
+
+  /* ── Simulador (slider en tiempo real) ── */
+  const simSlider = document.getElementById('sim-slider');
+  simSlider.addEventListener('input', actualizarSimulador);
+
+  ['sim-cat','sim-jornada','sim-pagas','sim-irpf'].forEach(id => {
+    document.getElementById(id).addEventListener('input', actualizarSimulador);
+  });
+
+  function actualizarSimulador() {
+    const subidaPct = parseFloat(simSlider.value) / 100;
+    const label = (parseFloat(simSlider.value)).toFixed(2).replace('.00','').replace(/\.?0+$/, '') + '%';
+    document.getElementById('sim-pct-label').textContent = label;
+    document.getElementById('sim-pct-label2').textContent = label;
+
+    const cat = document.getElementById('sim-cat').value;
+    const jornPct = parseInt(document.getElementById('sim-jornada').value) / 100;
+    const pagas = parseInt(document.getElementById('sim-pagas').value);
+    const irpfPct = parseFloat(document.getElementById('sim-irpf').value) / 100;
+
+    const t = TABLAS_2026[cat];
+    const brutoMesActual = (t.base + t.plus) * jornPct;
+    const brutoExtraActual = t.base * jornPct;
+    const brutoAnualActual = pagas === 12
+      ? ((brutoMesActual + brutoExtraActual * 2) / 12 * 12) + brutoExtraActual * 2
+      : brutoMesActual * 12 + brutoExtraActual * (pagas - 12);
+    const netoActualMes = netoMensual(brutoMesActual, irpfPct, pagas);
+
+    const baseNueva = t.base * (1 + subidaPct);
+    const plusNuevo = t.plus * (1 + subidaPct);
+    const brutoMesNuevo = (baseNueva + plusNuevo) * jornPct;
+    const brutoExtraNuevo = baseNueva * jornPct;
+    const brutoAnualNuevo = pagas === 12
+      ? brutoMesNuevo * 12 + brutoExtraNuevo * 2
+      : brutoMesNuevo * 12 + brutoExtraNuevo * (pagas - 12);
+    const netoNuevoMes = netoMensual(brutoMesNuevo, irpfPct, pagas);
+
+    const diferenciaMes = netoNuevoMes - netoActualMes;
+    const diferenciaAnio = diferenciaMes * 12;
+
+    document.getElementById('sim-resultado').style.display = 'block';
+    document.getElementById('sim-actual-bruto').textContent = fmtEuro(brutoMesActual) + '/mes bruto';
+    document.getElementById('sim-actual-neto').textContent = fmtEuro(netoActualMes) + '/mes neto';
+    document.getElementById('sim-nuevo-bruto').textContent = fmtEuro(brutoMesNuevo) + '/mes bruto';
+    document.getElementById('sim-nuevo-neto').textContent = fmtEuro(netoNuevoMes) + '/mes neto';
+    document.getElementById('sim-diferencia').textContent = '+' + fmtEuro(diferenciaMes) + '/mes';
+    document.getElementById('sim-diferencia-anual').textContent = '+' + fmtEuro(diferenciaAnio) + ' al año';
+  }
+
+  // Inicializar simulador al cargar
+  document.addEventListener('DOMContentLoaded', () => {
+    // Fecha actual para atrasos-hasta
+    const hoy = new Date();
+    document.getElementById('at-hasta').value = `${hoy.getFullYear()}-${String(hoy.getMonth()+1).padStart(2,'0')}`;
+    actualizarSimulador();
+    renderBreadcrumbs([{ label: 'Herramientas' }]);
+    renderCTA('cta-calculadora', { text: 'Calculadora de Nómina Farmacia', href: 'calculadora-nomina' });
+  });
+  </script>
+
+  <style>
+  .calc-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+  .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+  .calc-field { display: flex; flex-direction: column; gap: 0.35rem; }
+  .calc-field label { font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); }
+  .calc-field input, .calc-field select { padding: 0.6rem 0.75rem; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem; background: var(--bg); color: var(--text); }
+  .calc-field input:focus, .calc-field select:focus { outline: none; border-color: var(--primary); }
+  .calc-hint { font-size: 0.75rem; color: var(--text-secondary); }
+  .calc-btn { background: linear-gradient(135deg, #059669, #047857); color: white; border: none; padding: 0.85rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 0.5rem; width: 100%; transition: filter 0.2s; box-shadow: 0 4px 12px rgba(5,150,105,0.3); }
+  .calc-btn:hover { filter: brightness(1.08); }
+  .calc-resultado { margin-top: 1.5rem; border-top: 2px solid var(--border); padding-top: 1.5rem; }
+  .calc-resultado__titulo { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+  .irpf-grid { display: flex; flex-direction: column; gap: 0.4rem; }
+  .irpf-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0.85rem; background: var(--bg); border-radius: 8px; font-size: 0.92rem; }
+  .irpf-row strong { font-size: 1rem; }
+  .irpf-row--minus { border-left: 3px solid var(--irpf); }
+  .irpf-row--sub { border-left: 3px solid var(--ss); }
+  .irpf-row--total { background: var(--primary-50); border: 1px solid var(--primary-light); font-weight: 700; }
+  .irpf-row--total strong { color: var(--primary); font-size: 1.1rem; }
+  .info-box { padding: 1rem 1.25rem; border-radius: 10px; margin: 1rem 0; }
+  .info-box--warning { background: #fef3c7; border-left: 4px solid #f59e0b; }
+  .info-box p { margin: 0.5rem 0 0; font-size: 0.9rem; }
+  </style>
+</body>
+</html>

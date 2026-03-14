@@ -1,0 +1,320 @@
+/**
+ * home.css — Estilos específicos de la landing page (index.html)
+ */
+
+/* ========================================
+   HERO
+   ======================================== */
+
+.home-hero {
+  background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 30%, #ede9fe 100%);
+  padding: 4rem 1rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-mode .home-hero {
+  background: linear-gradient(135deg, #0f1a14 0%, #111827 50%, #1a1333 100%);
+}
+
+.home-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(5, 150, 105, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.home-hero__content {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.home-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--primary-800);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.dark-mode .home-hero h1 {
+  color: #f3f4f6;
+}
+
+.home-hero__subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-hero__actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn-hero:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hero--primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+}
+
+.btn-hero--primary:hover {
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+  color: white;
+}
+
+.btn-hero--secondary {
+  background: white;
+  color: var(--text);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.dark-mode .btn-hero--secondary {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f3f4f6;
+}
+
+.btn-hero--secondary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.home-hero__trust {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin-bottom: 0;
+}
+
+.home-hero__trust i { margin-right: 0.3rem; }
+
+/* ========================================
+   SALARY SNAPSHOT
+   ======================================== */
+
+.salary-snapshot {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  padding: 2rem 0 2.5rem;
+}
+
+.dark-mode .salary-snapshot {
+  background: var(--bg-section);
+}
+
+.salary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.salary-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.salary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.salary-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.salary-card--farmaceutico .salary-card__icon { background: linear-gradient(135deg, #059669, #047857); }
+.salary-card--tecnico .salary-card__icon { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.salary-card--auxiliar .salary-card__icon { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+
+.salary-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.salary-card__amount {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.salary-card__amount span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.salary-card__detail {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* ========================================
+   TOOLS SECTION
+   ======================================== */
+
+.tools-section {
+  padding: 3rem 0;
+}
+
+.card--clickable {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.card--clickable:hover { color: inherit; }
+
+.card--clickable:hover .card-link {
+  gap: 0.5rem;
+}
+
+/* ========================================
+   INFO SECTION
+   ======================================== */
+
+.info-section {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: 3rem 0;
+}
+
+.dark-mode .info-section {
+  background: var(--bg-section);
+}
+
+/* ========================================
+   TRUST / E-E-A-T SECTION
+   ======================================== */
+
+.trust-section {
+  padding: 3rem 0;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.trust-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.trust-item i {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.trust-item h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.trust-item p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ========================================
+   BLOG PREVIEW
+   ======================================== */
+
+.blog-preview {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-light);
+  padding: 3rem 0;
+}
+
+.dark-mode .blog-preview {
+  background: var(--bg-section);
+}
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .home-hero {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .salary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-hero {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}

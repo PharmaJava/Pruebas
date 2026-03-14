@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Horas y Jornada en Farmacia 2026 | Conversor % ↔ Horas y Balance</title>
+  <meta name="description" content="Convierte tu porcentaje de jornada en horas anuales y semanales según el convenio de farmacia (1.785 h/año). Calcula el balance de horas extras y jornada parcial.">
+  <link rel="canonical" href="https://conveniodefarmacia.com/horas-jornada-farmacia">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Convenio de Farmacia">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://conveniodefarmacia.com/horas-jornada-farmacia">
+  <meta property="og:title" content="Horas y Jornada Farmacia 2026 | Conversor % ↔ Horas">
+  <meta property="og:description" content="Convierte jornada % a horas según el convenio. 1.785 h/año. Calcula si tienes horas extras acumuladas.">
+  <meta property="og:image" content="https://conveniodefarmacia.com/assets/img/og-image.png">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Convenio de Farmacia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://conveniodefarmacia.com/assets/img/og-image.png">
+
+  <link rel="icon" type="image/png" href="assets/img/IMG_9941.png">
+  <link rel="apple-touch-icon" href="assets/img/IMG_9941.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/shared.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Horas y Jornada en Farmacia 2026 — Conversor y Calculadora",
+    "description": "Conversor de porcentaje de jornada a horas anuales/semanales según el convenio de farmacia. 1.785 h/año. Incluye balance de horas extras.",
+    "url": "https://conveniodefarmacia.com/horas-jornada-farmacia",
+    "inLanguage": "es-ES",
+    "author": { "@type": "Organization", "name": "Convenio de Farmacia", "url": "https://conveniodefarmacia.com/" },
+    "publisher": { "@type": "Organization", "name": "Convenio de Farmacia", "url": "https://conveniodefarmacia.com/" },
+    "dateModified": "2026-03-01"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuántas horas al año se trabaja en farmacia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El convenio colectivo de oficinas de farmacia establece una jornada máxima de 1.785 horas anuales para una jornada completa (100%). Las horas semanales equivalentes dependen del tipo de farmacia: 37,5 h/sem si está abierta todos los días, o 39,5 h/sem si cierra domingos y 12 festivos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántas horas son el 50% de jornada en farmacia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El 50% de jornada en farmacia corresponde a 892,5 horas anuales (1.785 ÷ 2). En términos semanales, equivale a unas 18,75 h/sem en una farmacia abierta todos los días, o 19,75 h/sem en una que cierra domingos y festivos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuándo hay horas extras en farmacia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Se considera hora extra toda hora trabajada por encima de la jornada pactada en el contrato. El convenio no fija precio de hora extra; se paga al menos al mismo precio que la hora ordinaria. El límite legal de horas extras es 80 horas anuales. Lo habitual en farmacia es la compensación en tiempo libre por acuerdo."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ── Calculadora de horas: estilos autocontenidos ── */
+    .calc-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    /* ── Campos individuales ── */
+    .calc-field { display: flex; flex-direction: column; gap: 0.3rem; }
+    .calc-field label {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .calc-field input,
+    .calc-field select {
+      padding: 0.65rem 0.75rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      transition: border-color .15s, box-shadow .15s;
+      width: 100%;
+    }
+    .calc-field input:focus,
+    .calc-field select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+    .calc-hint {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    /* ── Grid genérico para campos en 2 o 3 columnas ── */
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Conversor: 3 inputs con flechas entre ellos ── */
+    .conv-inputs {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .conv-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.15rem;
+      color: var(--text-light);
+      font-size: 1rem;
+      font-weight: 500;
+      white-space: nowrap;
+      margin-top: 1.4rem; /* compensa la altura de la label para alinearse con el input */
+    }
+    .conv-hint {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+      text-align: right;
+    }
+    @media (max-width: 560px) {
+      .conv-inputs {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .conv-arrow { display: none; }
+      .conv-hint { text-align: left; }
+    }
+
+    /* ── Botones ── */
+    .calc-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.85rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: var(--font);
+      cursor: pointer;
+      margin-top: 1rem;
+      text-decoration: none;
+      transition: filter .15s, transform .15s;
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+    .calc-btn:hover { filter: brightness(1.08); transform: translateY(-1px); color: white; }
+    .calc-btn:active { transform: translateY(0); }
+    .calc-btn--secondary {
+      background: linear-gradient(135deg, #0891b2, #0e7490);
+      box-shadow: 0 4px 12px rgba(8,145,178,.3);
+    }
+
+    /* ── Resultado del conversor ── */
+    .conv-resultado {
+      display: none;
+      background: var(--primary-50);
+      border: 1.5px solid var(--primary-100);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+    }
+    .dark-mode .conv-resultado {
+      background: rgba(5,150,105,.1);
+      border-color: rgba(5,150,105,.25);
+    }
+    .conv-resultado__row {
+      display: flex;
+      gap: 0;
+      flex-wrap: wrap;
+      align-items: stretch;
+    }
+    .conv-resultado__item {
+      text-align: center;
+      flex: 1;
+      min-width: 100px;
+      padding: 0.25rem 0.5rem;
+    }
+    .conv-resultado__num {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.1;
+    }
+    .dark-mode .conv-resultado__num { color: var(--primary); }
+    .conv-resultado__lbl {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+    .conv-resultado__sep {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      color: var(--border);
+      padding: 0 0.25rem;
+    }
+
+    /* ── Resultado del balance ── */
+    .balance-resultado { margin-top: 1rem; }
+    .balance-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .balance-card--positivo { border-color: #10b981; background: #f0fdf4; }
+    .balance-card--negativo { border-color: #ef4444; background: #fef2f2; }
+    .dark-mode .balance-card--positivo { background: rgba(16,185,129,.1); }
+    .dark-mode .balance-card--negativo { background: rgba(239,68,68,.1); }
+    .balance-card__title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--text-secondary);
+      margin-bottom: 0.35rem;
+    }
+    .balance-card__value { font-size: 1.4rem; font-weight: 800; }
+    .balance-card--positivo .balance-card__value { color: #059669; }
+    .balance-card--negativo .balance-card__value { color: #dc2626; }
+    .balance-card__detail { font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.2rem; }
+    .balance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.75rem;
+    }
+
+    /* ── Checkbox temporal ── */
+    .temporal-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      margin-top: 0.75rem;
+      user-select: none;
+    }
+    .temporal-toggle input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
+    .temporal-fields { display: none; margin-top: 0.75rem; }
+
+    /* ── Info box ── */
+    .info-highlight {
+      background: var(--primary-50);
+      border-left: 3px solid var(--primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+      color: var(--text);
+      margin: 0.75rem 0;
+      line-height: 1.6;
+    }
+    .dark-mode .info-highlight { background: rgba(5,150,105,.1); }
+    .info-highlight strong { color: var(--primary-dark); }
+    .dark-mode .info-highlight strong { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-552P3WBC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header id="main-nav"></header>
+  <div id="breadcrumbs"></div>
+
+  <section class="page-hero">
+    <span class="hero-badge"><i class="fa-solid fa-clock"></i> Jornada — XXV Convenio</span>
+    <h1>Horas y Jornada en Farmacia 2026</h1>
+    <p class="hero-subtitle">Convierte tu porcentaje de jornada en horas anuales y semanales. Calcula si tienes un balance de horas a favor o en contra. Basado en las 1.785 h/año del convenio.</p>
+  </section>
+
+  <nav class="quick-nav" aria-label="Saltar a sección">
+    <div class="page-container" style="padding-top:0.6rem;padding-bottom:0.6rem;">
+      <div class="quick-nav__links">
+        <a href="#conversor" class="quick-nav__btn quick-nav__btn--highlight"><i class="fa-solid fa-arrows-left-right-to-line"></i> Conversor</a>
+        <a href="#balance" class="quick-nav__btn"><i class="fa-solid fa-scale-balanced"></i> Balance de horas</a>
+        <a href="#tablas" class="quick-nav__btn"><i class="fa-solid fa-table"></i> Tabla jornadas</a>
+        <a href="#faqs" class="quick-nav__btn"><i class="fa-solid fa-circle-question"></i> Preguntas</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-container page-container--narrow">
+
+      <!-- ── INFO RÁPIDA ── -->
+      <section class="content-section">
+        <div class="info-highlight">
+          <i class="fa-solid fa-circle-info"></i> El XXV Convenio de Farmacia fija <strong>1.785 horas anuales</strong> para jornada completa. En horas semanales: <strong>37,5 h/sem</strong> si la farmacia abre todos los días, o <strong>39,5 h/sem</strong> si cierra domingos y 12 festivos. Las horas totales son las mismas; lo que cambia es en cuántas semanas efectivas se distribuyen.
+        </div>
+      </section>
+
+      <!-- ── CONVERSOR ── -->
+      <section class="content-section" id="conversor">
+        <h2><i class="fa-solid fa-arrows-left-right-to-line"></i> Conversor de Jornada — % ↔ Horas</h2>
+
+        <div class="calc-card">
+
+          <!-- Tipo de apertura -->
+          <div class="calc-field">
+            <label for="h-apertura"><i class="fa-solid fa-store"></i> Tipo de apertura de la farmacia</label>
+            <select id="h-apertura">
+              <option value="todos_dias">Abierta todos los días (37,5 h/sem)</option>
+              <option value="cierra_festivos" selected>Cierra domingos y festivos (39,5 h/sem)</option>
+            </select>
+          </div>
+
+          <!-- Los 3 campos bidireccionales: % ↔ horas/año ↔ horas/sem -->
+          <div class="conv-inputs">
+            <div class="calc-field">
+              <label for="h-pct-input"><i class="fa-solid fa-percent"></i> % de jornada</label>
+              <input type="number" id="h-pct-input" placeholder="Ej: 50" min="1" max="100" step="0.5">
+            </div>
+            <div class="conv-arrow" aria-hidden="true">↔</div>
+            <div class="calc-field">
+              <label for="h-horas-input"><i class="fa-solid fa-clock"></i> Horas anuales</label>
+              <input type="number" id="h-horas-input" placeholder="Ej: 892" min="1" max="1785" step="0.5">
+            </div>
+            <div class="conv-arrow" aria-hidden="true">↔</div>
+            <div class="calc-field">
+              <label for="h-horas-semana"><i class="fa-solid fa-calendar-week"></i> Horas / semana</label>
+              <input type="number" id="h-horas-semana" placeholder="Ej: 20" min="1" max="40" step="0.5">
+            </div>
+          </div>
+          <p class="conv-hint" id="hint-semana"></p>
+
+          <!-- Contrato temporal opcional -->
+          <label class="temporal-toggle">
+            <input type="checkbox" id="h-temporal-check">
+            <span>Contrato temporal — calcular horas proporcionales al período</span>
+          </label>
+          <div id="h-temporal-fields" class="temporal-fields">
+            <div class="calc-grid">
+              <div class="calc-field">
+                <label for="h-fecha-inicio"><i class="fa-solid fa-calendar-plus"></i> Inicio contrato</label>
+                <input type="date" id="h-fecha-inicio">
+              </div>
+              <div class="calc-field">
+                <label for="h-fecha-fin"><i class="fa-solid fa-calendar-xmark"></i> Fin contrato</label>
+                <input type="date" id="h-fecha-fin">
+              </div>
+            </div>
+          </div>
+
+          <!-- Resultado conversor -->
+          <div id="h-conversor-resultado" class="conv-resultado" aria-live="polite"></div>
+
+          <!-- CTA a calculadora (aparece tras calcular) -->
+          <a href="calculadora-nomina" id="btn-h-aplicar" class="calc-btn" style="display:none;">
+            <i class="fa-solid fa-calculator"></i> Usar esta jornada en la calculadora de nómina
+          </a>
+        </div>
+      </section>
+
+      <!-- ── TABLA RÁPIDA ── -->
+      <section class="content-section" id="tablas">
+        <h2><i class="fa-solid fa-table"></i> Tabla de jornadas más habituales</h2>
+        <table class="info-table" id="tabla-jornadas">
+          <thead>
+            <tr>
+              <th>% Jornada</th>
+              <th>Horas / año</th>
+              <th>H/sem (todos los días)</th>
+              <th>H/sem (cierra festivos)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="highlight">100%</td><td>1.785 h</td><td>37,5 h/sem</td><td>39,5 h/sem</td></tr>
+            <tr><td>75%</td><td>1.338,75 h</td><td>28,13 h/sem</td><td>29,63 h/sem</td></tr>
+            <tr><td>50%</td><td>892,5 h</td><td>18,75 h/sem</td><td>19,75 h/sem</td></tr>
+            <tr><td>40%</td><td>714 h</td><td>15 h/sem</td><td>15,8 h/sem</td></tr>
+            <tr><td>33%</td><td>589,05 h</td><td>12,38 h/sem</td><td>13,04 h/sem</td></tr>
+            <tr><td>25%</td><td>446,25 h</td><td>9,38 h/sem</td><td>9,88 h/sem</td></tr>
+          </tbody>
+        </table>
+        <p class="text-secondary" style="font-size:0.82rem; margin-top:0.5rem;">
+          <i class="fa-solid fa-circle-info"></i> Fuente: <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2022-23018" target="_blank" rel="noopener">XXV Convenio Colectivo de Oficinas de Farmacia</a> · Las h/sem son aproximadas.
+        </p>
+      </section>
+
+      <!-- ── BALANCE DE HORAS ── -->
+      <section class="content-section" id="balance">
+        <h2><i class="fa-solid fa-scale-balanced"></i> Balance de horas realizadas</h2>
+        <p>Compara las horas que has trabajado en el año con las que te corresponden según tu jornada y contrato.</p>
+
+        <div class="calc-card">
+          <div class="calc-grid">
+            <div class="calc-field">
+              <label for="bal-jornada"><i class="fa-solid fa-percent"></i> Tu % de jornada</label>
+              <input type="number" id="bal-jornada" placeholder="Ej: 75" min="1" max="100" step="0.5">
+            </div>
+            <div class="calc-field">
+              <label for="bal-realizadas"><i class="fa-solid fa-check-square"></i> Horas realizadas</label>
+              <input type="number" id="bal-realizadas" placeholder="Ej: 950" min="0" step="0.5">
+            </div>
+            <div class="calc-field">
+              <label for="bal-precio"><i class="fa-solid fa-euro-sign"></i> Precio hora (€)</label>
+              <input type="number" id="bal-precio" placeholder="Ej: 10,50" min="0" step="0.01">
+              <span class="calc-hint">Bruto mensual ÷ horas/mes contratadas</span>
+            </div>
+          </div>
+
+          <label class="temporal-toggle">
+            <input type="checkbox" id="bal-temporal-check">
+            <span>Contrato temporal — indicar período</span>
+          </label>
+          <div id="bal-temporal-fields" class="temporal-fields">
+            <div class="calc-grid">
+              <div class="calc-field">
+                <label for="bal-fecha-inicio"><i class="fa-solid fa-calendar-plus"></i> Inicio</label>
+                <input type="date" id="bal-fecha-inicio">
+              </div>
+              <div class="calc-field">
+                <label for="bal-fecha-fin"><i class="fa-solid fa-calendar-xmark"></i> Fin</label>
+                <input type="date" id="bal-fecha-fin">
+              </div>
+            </div>
+          </div>
+
+          <button class="calc-btn calc-btn--secondary" onclick="calcularBalance()">
+            <i class="fa-solid fa-scale-balanced"></i> Calcular balance
+          </button>
+
+          <div id="bal-resultado" class="balance-resultado" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- ── FAQs ── -->
+      <section class="faq-section content-section" id="faqs">
+        <h2>Preguntas Frecuentes sobre Horas y Jornada en Farmacia</h2>
+
+        <details class="faq-item">
+          <summary>¿Cuántas horas al año se trabaja en una farmacia?</summary>
+          <div>
+            <p>El XXV Convenio Colectivo de Oficinas de Farmacia fija la jornada máxima en <strong>1.785 horas anuales</strong> para el 100% de jornada. Esto es igual independientemente de si la farmacia abre todos los días o cierra domingos y festivos — lo que cambia son las horas semanales equivalentes, no el total anual.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿37,5 o 39,5 horas semanales? ¿Cuál me aplica?</summary>
+          <div>
+            <p>Depende del tipo de farmacia:</p>
+            <p><strong>37,5 h/sem</strong> → Farmacia abierta los 365 días del año (incluyendo domingos y festivos). Las 1.785 h se distribuyen en 47,6 semanas efectivas (descontando vacaciones).</p>
+            <p><strong>39,5 h/sem</strong> → Farmacia que cierra domingos y 12 festivos laborables. Las semanas efectivas son menos (~45,2), así que cada semana hay más horas, pero el total anual sigue siendo 1.785 h.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Cuántas horas son el 50% de jornada en farmacia?</summary>
+          <div>
+            <p>El 50% de jornada en farmacia equivale a <strong>892,5 horas anuales</strong> (1.785 ÷ 2). En horas semanales, serían 18,75 h/sem si la farmacia abre todos los días, o 19,75 h/sem si cierra domingos y festivos.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Cómo se calcula el precio de una hora extra en farmacia?</summary>
+          <div>
+            <p>El convenio no fija un precio específico para las horas extras. El mínimo legal es que se paguen al mismo precio que la hora ordinaria: <strong>salario bruto mensual ÷ horas/mes contratadas</strong>. Lo habitual en farmacia es compensar con tiempo libre en lugar de pago económico, si así lo acuerdan empresa y trabajador. El límite legal de horas extras es <strong>80 horas anuales</strong>.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Afecta la jornada parcial a las pagas extras?</summary>
+          <div>
+            <p>Sí. Las pagas extras son proporcionales a la jornada. Si trabajas al 50%, cobras la mitad de la paga extra que una persona a jornada completa con el mismo salario/hora. El cálculo exacto depende de si las pagas están prorrateadas en los 12 meses o se pagan aparte.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Puedo tener horas de más sin saberlo?</summary>
+          <div>
+            <p>Sí, especialmente en contratos a tiempo parcial donde se hacen horas "de más" de forma habitual sin formalizar. Es importante registrar las horas diarias — la ley obliga a los empresarios a llevar un registro horario desde 2019. Si llevas más horas que las contratadas de forma regular, puedes reclamar las horas extras o pedir la modificación del contrato.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- Related tools -->
+      <div class="card-grid" style="margin: 2rem 0;">
+        <a href="calculadora-nomina" class="card card--clickable">
+          <div class="card-icon" style="background:linear-gradient(135deg,#059669,#047857)"><i class="fa-solid fa-calculator"></i></div>
+          <h3>Calculadora de Nómina</h3>
+          <p>Calcula tu sueldo neto mensual y anual según el convenio con tu jornada exacta.</p>
+          <span class="card-link">Calcular nómina <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="vacaciones-farmacia" class="card card--clickable">
+          <div class="card-icon" style="background:linear-gradient(135deg,#0891b2,#0e7490)"><i class="fa-solid fa-umbrella-beach"></i></div>
+          <h3>Vacaciones</h3>
+          <p>Los 30 días naturales de vacaciones y su valor económico según tu jornada y salario.</p>
+          <span class="card-link">Calcular vacaciones <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        <a href="finiquito-farmacia" class="card card--clickable">
+          <div class="card-icon" style="background:linear-gradient(135deg,#dc2626,#b91c1c)"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+          <h3>Finiquito</h3>
+          <p>El cálculo del finiquito incluye las horas trabajadas y la jornada pactada en contrato.</p>
+          <span class="card-link">Calcular finiquito <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="assets/js/components.js"></script>
+  <script>
+  'use strict';
+
+  const HORAS_CONVENIO = 1785;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderBreadcrumbs([{ label: 'Horas y Jornada', href: '/horas-jornada-farmacia' }]);
+    initConversor();
+    initBalanceTemporal();
+  });
+
+  /* ══════════════════════════════════════════
+     CONVERSOR % ↔ HORAS
+  ══════════════════════════════════════════ */
+  function initConversor() {
+    const pctInput      = document.getElementById('h-pct-input');
+    const horasInput    = document.getElementById('h-horas-input');
+    const semanaInput   = document.getElementById('h-horas-semana');
+    const aperturaEl    = document.getElementById('h-apertura');
+    const temporalCheck = document.getElementById('h-temporal-check');
+    const temporalFields= document.getElementById('h-temporal-fields');
+    const resultado     = document.getElementById('h-conversor-resultado');
+    const btnAplicar    = document.getElementById('btn-h-aplicar');
+    const hintSemana    = document.getElementById('hint-semana');
+
+    const DIAS_VAC    = 30;
+    const SEMANAS_VAC = DIAS_VAC / 7;
+
+    // Hardcodeado según convenio y CLAUDE.md (Bug #1: no calcular dinámicamente)
+    function getConfigJornada() {
+      const cierra = aperturaEl.value === 'cierra_festivos';
+      const hSemCompleto = cierra ? 39.5 : 37.5;
+      const semEf = HORAS_CONVENIO / hSemCompleto;
+      return { semEf, hSemCompleto };
+    }
+
+    function actualizarHint() {
+      const { hSemCompleto } = getConfigJornada();
+      const cierra = aperturaEl.value === 'cierra_festivos';
+      hintSemana.innerHTML = cierra
+        ? `Jornada completa (cierra festivos): <strong>${hSemCompleto.toFixed(1).replace('.', ',')} h/sem</strong>`
+        : `Jornada completa (todos los días): <strong>${hSemCompleto.toFixed(1).replace('.', ',')} h/sem</strong>`;
+    }
+
+    function getDiasContrato() {
+      const i = document.getElementById('h-fecha-inicio').value;
+      const f = document.getElementById('h-fecha-fin').value;
+      if (!i || !f) return null;
+      const ms = new Date(f) - new Date(i);
+      return ms < 0 ? null : Math.round(ms / 86400000) + 1;
+    }
+
+    function getHorasBase(pct) {
+      if (temporalCheck.checked) {
+        const dias = getDiasContrato();
+        if (!dias) return null;
+        return (pct / 100) * HORAS_CONVENIO * (dias / 365);
+      }
+      return (pct / 100) * HORAS_CONVENIO;
+    }
+
+    function actualizar() {
+      const active = document.activeElement;
+      const { hSemCompleto } = getConfigJornada();
+      const pct   = parseFloat(pctInput.value);
+      const horas = parseFloat(horasInput.value);
+      const sem   = parseFloat(semanaInput.value);
+      let pF = null, hF = null, sF = null;
+
+      if (active === pctInput && !isNaN(pct) && pct > 0) {
+        hF = getHorasBase(pct); if (!hF) { resultado.style.display='none'; return; }
+        pF = pct; sF = (pct / 100) * hSemCompleto;
+        horasInput.value = Math.round(hF * 2) / 2;
+        semanaInput.value = (Math.round(sF * 2) / 2).toFixed(2);
+      } else if (active === horasInput && !isNaN(horas) && horas > 0) {
+        const ref = temporalCheck.checked ? (getDiasContrato() ? HORAS_CONVENIO * getDiasContrato() / 365 : null) : HORAS_CONVENIO;
+        if (!ref) { resultado.style.display='none'; return; }
+        pF = (horas / ref) * 100; hF = horas; sF = (pF / 100) * hSemCompleto;
+        pctInput.value = Math.round(pF * 10) / 10;
+        semanaInput.value = (Math.round(sF * 2) / 2).toFixed(2);
+      } else if (active === semanaInput && !isNaN(sem) && sem > 0) {
+        pF = (sem / hSemCompleto) * 100; hF = getHorasBase(pF) ?? (pF / 100) * HORAS_CONVENIO; sF = sem;
+        pctInput.value = Math.round(pF * 10) / 10;
+        horasInput.value = Math.round(hF * 2) / 2;
+      } else if (!isNaN(pct) && pct > 0) {
+        hF = getHorasBase(pct); if (!hF) { resultado.style.display='none'; return; }
+        pF = pct; sF = (pct / 100) * hSemCompleto;
+      }
+
+      if (pF !== null && hF !== null) {
+        const tmpTxt = temporalCheck.checked && getDiasContrato() ? ` · contrato de ${getDiasContrato()} días` : '';
+        resultado.style.display = 'block';
+        resultado.innerHTML = `
+          <div class="conv-resultado__row">
+            <div class="conv-resultado__item">
+              <div class="conv-resultado__num">${Math.round(pF * 10) / 10}%</div>
+              <div class="conv-resultado__lbl">% de jornada</div>
+            </div>
+            <div class="conv-resultado__sep">·</div>
+            <div class="conv-resultado__item">
+              <div class="conv-resultado__num">${(Math.round(hF * 2) / 2).toFixed(1).replace('.', ',')} h</div>
+              <div class="conv-resultado__lbl">Horas / año${tmpTxt}</div>
+            </div>
+            <div class="conv-resultado__sep">·</div>
+            <div class="conv-resultado__item">
+              <div class="conv-resultado__num">${(Math.round(sF * 2) / 2).toFixed(2).replace('.', ',')} h</div>
+              <div class="conv-resultado__lbl">Horas / semana</div>
+            </div>
+          </div>`;
+        btnAplicar.style.display = 'flex';
+        btnAplicar.href = `/calculadora-nomina?jornada=${Math.round(pF)}`;
+      } else {
+        resultado.style.display = 'none';
+        btnAplicar.style.display = 'none';
+      }
+    }
+
+    pctInput.addEventListener('input', actualizar);
+    horasInput.addEventListener('input', actualizar);
+    semanaInput.addEventListener('input', actualizar);
+    aperturaEl.addEventListener('change', () => { actualizarHint(); actualizar(); });
+    temporalCheck.addEventListener('change', () => {
+      temporalFields.style.display = temporalCheck.checked ? 'block' : 'none';
+      actualizar();
+    });
+    document.getElementById('h-fecha-inicio').addEventListener('change', actualizar);
+    document.getElementById('h-fecha-fin').addEventListener('change', actualizar);
+    actualizarHint();
+  }
+
+  /* ══════════════════════════════════════════
+     BALANCE DE HORAS
+  ══════════════════════════════════════════ */
+  function initBalanceTemporal() {
+    const check  = document.getElementById('bal-temporal-check');
+    const fields = document.getElementById('bal-temporal-fields');
+    check.addEventListener('change', () => {
+      fields.style.display = check.checked ? 'block' : 'none';
+    });
+  }
+
+  function calcularBalance() {
+    const jornada    = parseFloat(document.getElementById('bal-jornada').value);
+    const realizadas = parseFloat(document.getElementById('bal-realizadas').value);
+    const precio     = parseFloat(document.getElementById('bal-precio').value) || 0;
+    const temporal   = document.getElementById('bal-temporal-check').checked;
+    const resultado  = document.getElementById('bal-resultado');
+
+    if (isNaN(jornada) || jornada <= 0) {
+      resultado.innerHTML = '<p style="color:#ef4444; font-size:0.9rem;"><i class="fa-solid fa-triangle-exclamation"></i> Introduce tu % de jornada.</p>';
+      return;
+    }
+    if (isNaN(realizadas) || realizadas < 0) {
+      resultado.innerHTML = '<p style="color:#ef4444; font-size:0.9rem;"><i class="fa-solid fa-triangle-exclamation"></i> Introduce las horas realizadas.</p>';
+      return;
+    }
+
+    let horasCorrespondientes;
+    if (temporal) {
+      const inicio = document.getElementById('bal-fecha-inicio').value;
+      const fin    = document.getElementById('bal-fecha-fin').value;
+      if (!inicio || !fin) {
+        resultado.innerHTML = '<p style="color:#ef4444; font-size:0.9rem;"><i class="fa-solid fa-triangle-exclamation"></i> Para contrato temporal, introduce las fechas.</p>';
+        return;
+      }
+      const dias = Math.round((new Date(fin) - new Date(inicio)) / 86400000) + 1;
+      horasCorrespondientes = (jornada / 100) * HORAS_CONVENIO * (dias / 365);
+    } else {
+      horasCorrespondientes = (jornada / 100) * HORAS_CONVENIO;
+    }
+
+    const diferencia = realizadas - horasCorrespondientes;
+    const esSobra    = diferencia > 0.5;
+    const esDeficit  = diferencia < -0.5;
+    const valorEuros = precio > 0 ? Math.abs(diferencia) * precio : null;
+
+    resultado.innerHTML = `
+      <div class="balance-grid">
+        <div class="balance-card">
+          <div class="balance-card__title">Horas correspondidas</div>
+          <div class="balance-card__value">${horasCorrespondientes.toFixed(1).replace('.', ',')} h</div>
+          <div class="balance-card__detail">Según tu jornada del ${jornada}%</div>
+        </div>
+        <div class="balance-card">
+          <div class="balance-card__title">Horas realizadas</div>
+          <div class="balance-card__value">${realizadas.toFixed(1).replace('.', ',')} h</div>
+          <div class="balance-card__detail">Horas que has trabajado</div>
+        </div>
+        <div class="balance-card balance-card--${esSobra ? 'positivo' : esDeficit ? 'negativo' : 'neutro'}">
+          <div class="balance-card__title">${esSobra ? '⬆ Horas extra' : esDeficit ? '⬇ Horas pendientes' : '✓ Balance'}</div>
+          <div class="balance-card__value">${diferencia > 0 ? '+' : ''}${diferencia.toFixed(1).replace('.', ',')} h</div>
+          <div class="balance-card__detail">
+            ${esSobra
+              ? valorEuros ? `Valor económico: <strong>${valorEuros.toFixed(2).replace('.', ',')} €</strong>` : 'Tienes horas extra acumuladas'
+              : esDeficit
+              ? valorEuros ? `Valor pendiente: <strong>${valorEuros.toFixed(2).replace('.', ',')} €</strong>` : 'Aún quedan horas por realizar'
+              : 'Balance equilibrado'}
+          </div>
+        </div>
+      </div>`;
+    resultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  </script>
+</body>
+</html>

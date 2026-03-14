@@ -1,0 +1,13 @@
+# conveniodefarmacia.com — robots.txt
+User-agent: *
+Allow: /
+
+# No indexar archivos internos
+Disallow: /README.md
+Disallow: /CLAUDE.md
+Disallow: /LICENSE
+Disallow: /skills/
+Disallow: /.git/
+Disallow: /Prueba/
+
+Sitemap: https://conveniodefarmacia.com/sitemap.xml

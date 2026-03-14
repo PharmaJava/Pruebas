@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blog Farmacia 2026 | Novedades Laborales y Convenio — Convenio de Farmacia</title>
+  <meta name="description" content="Artículos sobre el convenio de farmacia, derechos laborales, tablas salariales y novedades del sector farmacéutico en España.">
+  <link rel="canonical" href="https://conveniodefarmacia.com/blog">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Convenio de Farmacia">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://conveniodefarmacia.com/blog">
+  <meta property="og:title" content="Blog Farmacia — Novedades y Derechos Laborales">
+  <meta property="og:description" content="Artículos sobre convenio de farmacia, nóminas, derechos laborales y novedades del sector farmacéutico en España.">
+  <meta property="og:image" content="https://conveniodefarmacia.com/assets/img/og-image.png">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Convenio de Farmacia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://conveniodefarmacia.com/assets/img/og-image.png">
+
+  <link rel="icon" type="image/png" href="assets/img/IMG_9941.png">
+  <link rel="apple-touch-icon" href="assets/img/IMG_9941.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/shared.css">
+
+  <style>
+    .page-container { max-width: 1000px; margin: 0 auto; padding: 0 1.25rem; }
+
+    /* Grid de artículos */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .article-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .15s, box-shadow .15s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .article-card__img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: rgba(255,255,255,.8);
+      flex-shrink: 0;
+    }
+    .article-card__body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .article-card__cat {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: .5rem;
+    }
+    .article-card__title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 .6rem;
+      line-height: 1.4;
+    }
+    .article-card__excerpt {
+      font-size: .86rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .article-card__meta {
+      margin-top: 1rem;
+      padding-top: .75rem;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .78rem;
+      color: var(--text-light);
+    }
+    .article-card__read {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: .82rem;
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+    }
+
+    /* Artículo destacado */
+    .article-featured {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 0;
+      margin: 2rem 0 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .article-featured:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,.12); }
+    @media (max-width: 640px) { .article-featured { grid-template-columns: 1fr; } }
+    .article-featured__img {
+      background: linear-gradient(135deg, #db2777 0%, #9333ea 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      min-height: 220px;
+      color: rgba(255,255,255,.85);
+    }
+    .article-featured__body { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
+    .article-featured__badge {
+      display: inline-block;
+      background: #fce7f3;
+      color: #9d174d;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: .2rem .6rem;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .75rem;
+      width: fit-content;
+    }
+    .dark-mode .article-featured__badge { background: #4a044e; color: #f9a8d4; }
+    .article-featured__title { font-size: 1.35rem; font-weight: 800; margin: 0 0 .75rem; line-height: 1.3; color: var(--text); }
+    .article-featured__excerpt { font-size: .9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
+    .article-featured__meta { font-size: .8rem; color: var(--text-light); }
+
+    /* Tags categorías */
+    .category-filter {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .cat-tag {
+      padding: .3rem .75rem;
+      border-radius: 99px;
+      font-size: .8rem;
+      font-weight: 600;
+      border: 1.5px solid var(--border);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all .15s;
+      background: transparent;
+    }
+    .cat-tag:hover, .cat-tag--active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 2rem 0 .25rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin-left: .5rem;
+    }
+
+    .author-box {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      margin: 2.5rem 0;
+    }
+    .author-box__avatar {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      flex-shrink: 0;
+    }
+    .author-box__name { font-weight: 700; font-size: 1rem; color: var(--text); }
+    .author-box__role { font-size: .82rem; color: var(--text-secondary); margin-top: .15rem; }
+    .author-box__bio  { font-size: .87rem; color: var(--text-secondary); line-height: 1.6; margin-top: .5rem; }
+
+    .breadcrumb-wrap { padding: .75rem 0; }
+    #breadcrumbs .breadcrumb-nav { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; font-size: .83rem; }
+    .bc-link { color: var(--primary); text-decoration: none; }
+    .bc-link:hover { text-decoration: underline; }
+    .bc-sep { color: var(--text-light); }
+    .bc-current { color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+
+  <header id="main-nav"></header>
+
+  <section class="page-hero">
+    <span class="hero-badge"><i class="fa-solid fa-newspaper"></i> Convenio de Farmacia · Blog</span>
+    <h1>Blog</h1>
+    <p class="hero-subtitle">Artículos sobre el convenio de farmacia, derechos laborales, tablas salariales y novedades del sector farmacéutico en España.</p>
+  </section>
+
+  <div class="page-container">
+    <div class="breadcrumb-wrap">
+      <div id="breadcrumbs"></div>
+    </div>
+
+    <!-- Categorías -->
+    <div class="category-filter">
+      <button class="cat-tag cat-tag--active">Todos</button>
+      <button class="cat-tag">Convenio</button>
+      <button class="cat-tag">Nómina</button>
+      <button class="cat-tag">Derechos laborales</button>
+      <button class="cat-tag">Sector farmacéutico</button>
+      <button class="cat-tag">Actualidad</button>
+    </div>
+
+    <!-- Artículo destacado -->
+    <div class="section-title">
+      <i class="fa-solid fa-star" style="color:#f59e0b;"></i> Artículo destacado
+    </div>
+
+    <a href="/blog/blog-mujeres-farmacia" class="article-featured">
+      <div class="article-featured__img">
+        <i class="fa-solid fa-venus"></i>
+      </div>
+      <div class="article-featured__body">
+        <div class="article-featured__badge">🌸 Día de la Mujer · Sector farmacéutico</div>
+        <h2 class="article-featured__title">La farmacia tiene nombre de mujer: 71,9% del sector y aún hay retos pendientes</h2>
+        <p class="article-featured__excerpt">
+          Más de 7 de cada 10 farmacéuticos colegiados en España son mujeres. Sin embargo, la brecha de pensión, la jornada parcial y el acceso a puestos directivos siguen siendo asignaturas pendientes. Un análisis completo desde dentro del sector.
+        </p>
+        <div class="article-featured__meta">
+          <span><i class="fa-regular fa-calendar"></i> 8 de marzo de 2026</span>
+          <span><i class="fa-regular fa-clock"></i> 7 min de lectura</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Todos los artículos -->
+    <div class="section-title">
+      <i class="fa-solid fa-list"></i> Todos los artículos
+    </div>
+
+    <div class="articles-grid">
+
+      <!-- Artículo 1 — Mujeres en farmacia -->
+      <a href="/blog/blog-mujeres-farmacia" class="article-card">
+        <div class="article-card__img">
+          <i class="fa-solid fa-venus"></i>
+        </div>
+        <div class="article-card__body">
+          <div class="article-card__cat">🌸 Sector farmacéutico</div>
+          <h3 class="article-card__title">La farmacia tiene nombre de mujer</h3>
+          <p class="article-card__excerpt">El 71,9% del sector son mujeres, pero la brecha de pensión y la jornada parcial siguen siendo retos reales. Un análisis honesto desde dentro.</p>
+          <div class="article-card__meta">
+            <span>8 mar 2026 · 7 min</span>
+            <span class="article-card__read">Leer <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Placeholder artículo 2 -->
+      <div class="article-card" style="opacity:.55; cursor:default; pointer-events:none;">
+        <div class="article-card__img" style="background:linear-gradient(135deg,#059669,#047857);">
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+        </div>
+        <div class="article-card__body">
+          <div class="article-card__cat">📋 Nómina</div>
+          <h3 class="article-card__title">Cómo leer tu nómina de farmacia: guía campo a campo</h3>
+          <p class="article-card__excerpt">Próximamente — Una guía visual para entender cada línea de tu recibo de salario: salario base, plus facultativo, pagas extras y deducciones.</p>
+          <div class="article-card__meta">
+            <span>Próximamente</span>
+            <span class="article-card__read" style="color:var(--text-light);">En preparación</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Placeholder artículo 3 -->
+      <div class="article-card" style="opacity:.55; cursor:default; pointer-events:none;">
+        <div class="article-card__img" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);">
+          <i class="fa-solid fa-piggy-bank"></i>
+        </div>
+        <div class="article-card__body">
+          <div class="article-card__cat">📊 Convenio</div>
+          <h3 class="article-card__title">Convenio de farmacia 2026: todas las novedades del BOE</h3>
+          <p class="article-card__excerpt">Próximamente — Análisis completo de la resolución BOE-A-2026-4220: nuevas tablas salariales, subidas por categoría y cambios relevantes.</p>
+          <div class="article-card__meta">
+            <span>Próximamente</span>
+            <span class="article-card__read" style="color:var(--text-light);">En preparación</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Caja de autor -->
+    <div class="author-box">
+      <div class="author-box__avatar">
+        <i class="fa-solid fa-user-doctor" style="color:#fff;"></i>
+      </div>
+      <div>
+        <div class="author-box__name">Sobre este blog</div>
+        <p class="author-box__bio">
+          Artículos escritos desde dentro del sector farmacéutico. Creamos conveniodefarmacia.com porque no encontrábamos ninguna herramienta que calculara la nómina correctamente según las tablas del BOE. Este blog es una extensión de eso: contenido práctico, sin letra pequeña.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer id="main-footer"></footer>
+
+  <script src="assets/js/components.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    renderBreadcrumbs([{ label: 'Blog', href: '/blog' }]);
+
+    // Filtros de categoría (UI básica)
+    document.querySelectorAll('.cat-tag').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cat-tag').forEach(b => b.classList.remove('cat-tag--active'));
+        btn.classList.add('cat-tag--active');
+      });
+    });
+  });
+  </script>
+</body>
+</html>
